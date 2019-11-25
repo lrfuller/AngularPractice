@@ -1,0 +1,274 @@
+Validation page:
+<!-- <div class="container">
+  <form #userForm="ngForm"> 
+    <div><br></div>
+    <div class="form-row">
+      <label for="name1">Super Hero Name testing:</label>
+      <input type="text" id="name1" class="form-control" required [(ngModel)]="model.name2" #name2 name="name2">
+      <div class="alert-danger">
+        {{name2.className}}
+      </div>
+    </div>
+
+
+    <div class="form-row">
+      <label for="name">Super Hero Name:</label>
+      <input type="text" id="name" class="form-control" required [(ngModel)]="model.name" name="name" #name="ngModel">
+      <div [hidden]="name.valid || name.pristine" class="alert-danger alert">
+        Super Hero Name required
+      </div>
+    </div>
+
+
+    <div class="form-row">
+      <label for="weapon">Hero Weapon</label>
+      <select name="weapon" class="form-control" ngModel required>
+          <option value="" selected>Choose an Option</option>
+          <option *ngFor="let wp of weapons" [value]="wp">{{wp}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-row">
+      <label for="speciality">Speciality</label>
+      <select class="form-control" id="speciality">
+        <option *ngFor="let spec of specialities" [value]="spec">{{spec}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-row">
+      <label for="testhi">test:</label>
+      <select id="testhi" class="form-control">
+        <option *ngFor="let test of hi" [value]="test">{{test}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-row">
+      <label for="realname">Real Name</label>
+      <input type="text" class="form-control" id="realname">
+    </div>
+
+
+    <div><br></div>
+
+
+    <div class="form-row">
+      <div class="col-11">
+
+      </div>
+      <div class="col-1"> 
+         <button id="ngSubmit" type="submit" class="btn btn-primary testDisabled" [disabled]="userForm.invalid">Submit</button>
+      </div>
+    </div>
+  </form> 
+</div> -->
+
+
+<div class="container jumbotron">
+    <div class="col text-center">
+      <span class="display-4">Enter your information here</span>
+    </div>
+  
+    <form #infoForm="ngForm" novalidate>
+      <div class="form-row">
+        <div class="col align-content-center">
+          <label>First Name:<span class="asterisk">*</span><span class="smallFont"> (1-50 characters)</span></label>
+          <input name="name1" class="form-control" type="text" placeholder="Bob" required maxlength="50"
+            [(ngModel)]="user.firstName" #name1="ngModel" pattern="^[a-zA-Z]{1,50}$">
+          <div *ngIf="name1.dirty && name1.invalid" class="alert-danger alert">Please enter a valid first name</div>
+        </div>
+        <div class="col">
+          <label>Last Name:<span class="asterisk">*</span> <span class="smallFont"> (1-50 characters)</span></label>
+          <input name="name2" class="form-control" type="text" placeholder="Joe" required maxlength="50"
+            [(ngModel)]="user.lastName" #name2="ngModel" pattern="^[a-zA-Z]{1,50}$">
+          <div *ngIf="name2.dirty && name2.invalid" class="alert-danger alert">Please enter a valid last name</div>
+        </div>
+      </div>
+  
+  
+      <div><br></div>
+  
+  
+      <div class="form-row">
+        <div class="col-6">
+          <label>Address Line 1:<span class="asterisk">*</span></label>
+          <input name="add1" type="text" class="form-control" placeholder="2125 Chesnut ST" required maxlength="50"
+            [(ngModel)]="user.address1" #add1="ngModel" pattern="^[a-zA-Z0-9äöüÄÖÜ. ]*$">
+          <div *ngIf="add1.dirty && add1.invalid" class="alert-danger alert">Please enter a valid address</div>
+        </div>
+        <div class="col-3">
+          <label>City:<span class="asterisk">*</span></label>
+          <input name="city" class="form-control" type="text" placeholder="Richmond" required maxlength="30"
+            [(ngModel)]="user.city" #city="ngModel" pattern="^[a-zA-Z]{1,30}$">
+          <div *ngIf="city.dirty && city.invalid" class="alert-danger alert">Please enter a valid city</div>
+        </div>
+        <div class="col-3">
+          <label>State:<span class="asterisk">*</span></label>
+          <select class="form-control" name="state" [(ngModel)]="user.state" #state="ngModel" required>
+            <option value="" selected>Choose an Option</option>
+            <option value="AL">AL</option>
+            <option value="AK">AK</option>
+            <option value="AR">AR</option>
+            <option value="AZ">AZ</option>
+            <option value="CA">CA</option>
+            <option value="CO">CO</option>
+            <option value="CT">CT</option>
+            <option value="DC">DC</option>
+            <option value="DE">DE</option>
+            <option value="FL">FL</option>
+            <option value="GA">GA</option>
+            <option value="HI">HI</option>
+            <option value="IA">IA</option>
+            <option value="ID">ID</option>
+            <option value="IL">IL</option>
+            <option value="IN">IN</option>
+            <option value="KS">KS</option>
+            <option value="KY">KY</option>
+            <option value="LA">LA</option>
+            <option value="MA">MA</option>
+            <option value="MD">MD</option>
+            <option value="ME">ME</option>
+            <option value="MI">MI</option>
+            <option value="MN">MN</option>
+            <option value="MO">MO</option>
+            <option value="MS">MS</option>
+            <option value="MT">MT</option>
+            <option value="NC">NC</option>
+            <option value="NE">NE</option>
+            <option value="NH">NH</option>
+            <option value="NJ">NJ</option>
+            <option value="NM">NM</option>
+            <option value="NV">NV</option>
+            <option value="NY">NY</option>
+            <option value="ND">ND</option>
+            <option value="OH">OH</option>
+            <option value="OK">OK</option>
+            <option value="OR">OR</option>
+            <option value="PA">PA</option>
+            <option value="RI">RI</option>
+            <option value="SC">SC</option>
+            <option value="SD">SD</option>
+            <option value="TN">TN</option>
+            <option value="TX">TX</option>
+            <option value="UT">UT</option>
+            <option value="VT">VT</option>
+            <option value="VA">VA</option>
+            <option value="WA">WA</option>
+            <option value="WI">WI</option>
+            <option value="WV">WV</option>
+            <option value="WY">WY</option>
+          </select>
+          <div *ngIf="state.dirty && state.invalid" class="alert-danger alert">Please choose a state</div>
+        </div>
+  
+      </div>
+  
+  
+      <div><br></div>
+  
+  
+      <div class="form-row">
+        <div class="col-6">
+          <label>Address Line 2:</label>
+          <input name="add2" type="text" class="form-control" placeholder="Apartment number" maxlength="50"
+            [(ngModel)]="user.address2" #add2="ngModel" pattern="^[a-zA-Z0-9äöüÄÖÜ. ]*$">
+        </div>
+        <div class="col-3"></div>
+        <div class="col-3">
+          <label>Zip:<span class="asterisk">*</span></label>
+          <input name="zip" class="form-control" type="text" placeholder="11111" required maxlength="5"
+            [(ngModel)]="user.zipcode" #zip="ngModel" pattern="^[01-9]\d*$">
+          <div *ngIf="zip.dirty && zip.invalid" class="alert-danger alert">Please enter a valid zip</div>
+        </div>
+      </div>
+  
+  
+      <div><br></div>
+  
+  
+      <div class="form-row">
+        <div class="col">
+          <label>Email:<span class="asterisk">*</span></label>
+          <input name="email" class="form-control" type="text" placeholder="email@gmail.com" required
+            [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+          <div *ngIf="email.dirty && email.invalid" class="alert-danger alert">Please enter a valid email</div>
+        </div>
+        <div class="col-3">
+          <label>Phone Number:<span class="asterisk">*</span></label>
+          <input name="phone" type="text" class="form-control" mask="(000) 000-0000" [(ngModel)]="user.phoneNumber"
+            #phone="ngModel" placeholder="(804) 123-4567"/>
+          <div *ngIf="phone.dirty && phone.invalid" class="alert-danger alert">Please enter a valid phone number</div>
+        </div>
+        <div class="col-3">
+          <label>Date of Birth:<span class="asterisk">*</span></label>
+          <my-date-picker name="mydate" [options]="myDatePickerOptions" (dateChanged)="getDate($event)" [(ngModel)]="dateOfBirth" #mydate="ngModel"
+            required placeholder="01/01/2000"></my-date-picker>
+            <!-- <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="dateOfBirth" #mydate="ngModel"
+            required placeholder="01/01/2000"></my-date-picker> -->
+          <div *ngIf="mydate.dirty && mydate.invalid" class="alert-danger alert">Please select a date</div>
+        </div>
+      </div>
+  
+  
+      <div><br></div>
+  
+  
+      <div class="form-row">
+        <div class="col-10"></div>
+        <div class="col-1">
+          <button type="reset" class="btn btn-secondary">Reset</button>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary" type="submit" name="SubmitBtn" (click)="getUserData()" (click)="getDate"
+            [disabled]="infoForm.invalid">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  
+  <div class="container">
+    <table class="table table-dark text-center">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Email</th>
+          <th scope="col">DOB</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- using array -->
+      <tbody>
+        <tr *ngFor="let data of arrayUser">
+          <td>{{data.firstName}}</td>
+          <td>{{data.phoneNumber}}</td>
+          <td>{{data.email}}</td>
+          <td>{{data.dateOfBirth}}</td>
+          <!-- <td>{{data.dateOfBirth | dob}}</td> -->
+          <td></td>
+        </tr>
+      </tbody>
+      <!-- <tr *ngFor="let c of content">           
+          <td *ngFor="let key of c | keys">{{key}}: {{c[key]}}</td>
+        </tr> -->
+      
+      <!-- using object -->
+      <!-- <tbody>
+          <tr>
+              <td>{{user.firstName}} {{user.lastName}}</td>
+              <td>{{user.phoneNumber}}</td>
+              <td>{{user.email}}</td>
+          </tr>
+      </tbody> -->
+    </table>
+  </div>
+  
+  <!-- datepicker:
+    https://ng-bootstrap.github.io/#/components/datepicker/examples -->
+  
+  
+  <!-- <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+  <div>{{date.year}} {{date.month}} </div> -->

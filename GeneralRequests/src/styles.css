@@ -1,0 +1,48 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #b5adad33;
+}
+label{
+    font-weight: bold;
+}
+hr{
+    border-style:solid;
+    border-width:1px;
+}
+.asterisk{
+    color:red;
+    padding-left:.3rem;
+}
+
+.container{
+    max-width: 90%;
+}
+
+.invalidText{
+    color:red;
+    position:absolute;
+    z-index:1;
+}
+
+.smallInput{
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 0rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    /* transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
+
+    background-color: #e9ecef;
+    opacity: 1;
+}
+
+.removeMargin{
+    margin-bottom:0;
+}

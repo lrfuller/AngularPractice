@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+.tabRow{
+    background-color: black;
+    color:white;
+    padding:1rem;
+    font-size:20px;
+}
+.tabRow a{
+    color:white;
+}
+.tabRow a:hover{
+    color:red;
+}
+/* .tabRow a:visited, a:link{
+    color:blue;
+} */
+
+.tabRow a.active{
+    color:blue;
+}

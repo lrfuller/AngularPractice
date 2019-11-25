@@ -1,0 +1,16 @@
+.alert{
+    position: absolute;
+    z-index: 1;
+}
+.redAsterisk{
+    color:red;
+    font-weight: bold;
+}
+.smallFont{
+    font-size:10px;
+}
+.formSubmitBtn:disabled{
+    color:#fff;
+    background-color:#007bff;
+    border-color:#007bff;
+}

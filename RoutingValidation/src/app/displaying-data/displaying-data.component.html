@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="form-row">
+        <div class="col">
+            <h2>{{myHero1}} </h2>
+        </div>
+        <div class="col">
+            <h1>{{code1}} </h1>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="col">
+            <h2>{{myHero2}} </h2>
+        </div>
+        <div class="col">
+            <h1>{{code2}} </h1>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="form-row">
+        <div class="col">
+            <ul>
+                <label>All of them</label>
+                <li *ngFor="let character of characters">{{character}} </li>
+            </ul>
+        </div>
+        <div class="col">
+            <ul>
+                <label>Favorite of course</label>
+                <li>{{myCharacter}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="form-row">
+        <div class="col">
+            <h2>Another favorite is: {{myCharacter2.name}}</h2>
+        </div>
+        <div class="col">
+            <ul>
+                <li *ngFor="let character of characters2">{{character.name}} </li>
+            </ul>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="form-row">
+        <div class="col">
+            <p *ngIf="characters.length > 3">There are many heroes</p>
+        </div>
+    </div>
+
+
+    <!-- Container Div -->
+</div>

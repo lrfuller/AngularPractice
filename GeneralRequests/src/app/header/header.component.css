@@ -1,0 +1,53 @@
+.headerPRISM{
+    background-color:black;
+    color:white;
+}
+.whiteIcons{
+    color:white;
+}
+.inlineH4{
+    display: inline;
+}
+/* .yellowDiv{
+    background-color: rgba(249, 159, 27, 0.7);
+    text-align: center;
+    box-shadow: 5px 5px 5px grey;
+}
+.languageBreak{
+    line-height:1.7em;
+}
+.container{
+    padding-bottom:1.5em;
+}
+.generalForm{
+    background-color: white;
+    padding: 1rem;
+}
+
+
+.tab-content{
+    border:#dee2e6 1px solid;
+    border-top:none;
+    padding:1rem;
+} */
+
+/* @media only screen and (max-width: 780px) { */
+    @media only screen and (max-width: 767px) { 
+        .headerPRISM {
+            position: static;
+            width: 100%;
+            padding: 12%;
+        }
+        .leftHeading{
+            display:none;
+            /* visibility: collapse; */
+        }
+        .rightHeading{
+            display:none;
+            /* visibility: collapse; */
+        }
+        .container label{
+            font-size:14px;
+        }
+    
+    }

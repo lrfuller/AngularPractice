@@ -1,0 +1,100 @@
+<!-- Tutorial from: 
+    https://angular.io/guide/user-input 
+-->
+<div class="container text-center">
+    <div class="form-row">
+        <div class="col">
+            <p>User Input Tutorial Page</p>
+            <p>From: <a href="https://angular.io/guide/user-input ">angular tutorial</a></p>
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="form-row">
+        <div class="col">
+            <label>Simple Click me btn</label><br>
+            <button (click)="onClickMe()" class="btn btn-primary">Click me!</button>
+            <div class="message2">{{clickMessage}}</div>
+        </div>
+        <div class="col">
+            <!-- <input (keyup)="onKey($event)" type="text"> -->
+            <label>Using ($event: any) through the method</label><br>
+            <input (keyup)="onKey($event)" class="form-control">
+            <div class="message2">{{values}}</div>
+        </div>
+        <div class="col">
+            <label>Using ($event: KeyboardEvent) instead of any</label><br>
+            <input (keyup)="onKey2($event)" class="form-control">
+            <div class="message2">{{values2}}</div>
+        </div>
+    </div>
+
+    <br><br><br><br>
+
+    <div class="form-row">
+        <div class="col">
+            <label>Using template reference variables</label><br>
+            <input class="form-control" #box type="text" (keyup)="0">
+            <div class="message2">{{box.value}} </div>
+            <!-- Angular updates the bindings (and therefore the screen) only if the app does something in response to asynchronous
+            events, such as keystrokes. This example code binds the keyup event to the number 0, the shortest template statement
+            possible. While the statement does nothing useful, it satisfies Angular's requirement so that Angular will update the
+            screen. -->
+        </div>
+        <div class="col">
+            <label>Old way, using UserInfo.ts file values</label><br>
+            <input class="form-control" type="text" #old="ngModel" name="old" [(ngModel)]="user.name">
+            <div class="message2">{{old.value}} </div>
+        </div>
+        <div class="col">
+            <label>Passing box.value from the input #box</label>
+            <input class="form-control" #box2 (keyup)="onKey3(box2.value)">
+            <div class="message2">{{values3}} </div>
+        </div>
+    </div>
+
+
+    <br><br><br><br>
+
+    
+    <div class="form-row">
+        <div class="col">
+            <label>Key event filtering (keyup.enter)="(box.value)"</label>
+            <input class="form-control" #box3 (keyup.enter)="onEnter(box3.value)" type="text">
+            <div class="message2">{{values4}} </div>
+            <br><div class="message2">{{box3.value}} </div>
+        </div>
+        <div class="col" id="onBlur">
+            <label>On blur & previous (keyup.enter)="(box.value)" method</label>
+            <input class="form-control" type="text" #box4 
+            (keyup.enter)="update(box4.value)" 
+            (blur)="update(box4.value)" >
+            <div class="message2">{{values5}} </div>
+        </div>
+        <div class="col">
+            <label>Putting it together:</label>
+            <input class="form-control" #newUser 
+            (keyup.enter)="addUser(newUser.value); newUser.value=''"
+            (blur)="addUser(newUser.value); newUser.value=''"
+            >
+            <ul class="message22" *ngFor="let userL of userList">
+                <li>{{userL}} </li>
+
+            </ul>
+        </div>
+    
+    </div>
+    
+
+    <!-- CONTAINER DIV -->
+</div>
+    <!-- CONTAINER DIV -->
+
+
+
+
+
+
+
+

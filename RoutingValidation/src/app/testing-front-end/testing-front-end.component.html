@@ -1,0 +1,108 @@
+Testing Front End Page:
+<div class="container">
+
+    <br><br>
+    <h4>Testing Stuff</h4>
+    <input type=file (change)="selectFile($event)">
+
+    <button (click)="getPrint()">Print</button>
+
+
+
+
+
+    <br><br><br><br>
+
+    <nav>
+        <div class="col nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                aria-controls="nav-home" aria-selected="true">Home</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                aria-controls="nav-profile" aria-selected="false">Profile</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                aria-controls="nav-contact" aria-selected="false">Contact</a>
+        </div>
+    </nav>
+
+
+    <div class="col tab-content tabbedContent" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">hi</div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">there</div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">user</div>
+    </div>
+
+    <br><br><br><br>
+
+
+    <label class="h5">Blur:</label>
+    <input id="blurInput" (blur)="getEvent($event)" (blur)="blurEvent($event)"><br>
+    Triggered when clicked on, then clicked off, regardless of textInput (unlike change which needs text input).
+
+    <br><br>
+
+    <!-- blur will append to the click method, since it occurs 
+                after the user has left an input field... interestingly... Not very useful though lol -->
+    <!-- <button (blur)="getEvent($event)">Blur</button> -->
+    <label class="h5">Change:</label>
+    <input (change)="getEvent($event)"><br>
+    Triggered when the element loses focus, after the content has been changed or option is selected in the case of a
+    drop down list
+    <br>Can be used for input, select, and text area.
+
+    <br><br>
+
+    <label class="h5">Click:</label>
+    <button (click)="getEvent($event)">Click</button>
+    <br>
+    Click button to trigger
+    <br><br>
+    <label class="h5">Copy:</label>
+    <input (copy)="getEvent($event)">
+    <br>
+    Ctrl + c to trigger
+    <br><br>
+    <label class="h5">Keydown:</label>
+    <input (keydown)="getEvent($event)">
+    <br>
+    Press a key down to trigger
+    <br><br>
+    <label class="h5">MouseOver:</label>
+    <br>
+    <p class="mouseOverText" (mouseover)="getEvent($event)">
+
+        MouseOver this text to trigger</p>
+
+
+
+    <!--ng-blur*
+            ng-change*
+            ng-click*
+            ng-copy*
+            ng-cut
+            ng-dblclick
+            ng-focus
+            ng-keydown*
+            ng-keypress
+            ng-keyup
+            ng-mousedown
+            ng-mouseenter
+            ng-mouseleave
+            ng-mousemove
+            ng-mouseover*
+            ng-mouseup
+            ng-paste -->
+<br><br>
+<form #infoForm="ngForm">
+    <div class="form-row">
+    <div class="col">
+        <label>Requestor's first name<span class="asterisk">*</span> </label>
+        <input id="firstNameInput" class="form-control" type="text" required pattern="^[a-zA-z,.'-]{3,50}$" #firstName="ngModel" name="firstName" [(ngModel)]="user.firstName"
+        (blur)="invalidTest($event)"> 
+        <div id="firstNameValidation" class="invalidText" *ngIf="firstName.invalid && firstName.touched" >first name is required</div>
+        <!-- <div id="firstNameValidation" class="invalidText" *ngIf="firstName.invalid && firstName.dirty" >first name is required</div> -->
+    </div>
+    </div>
+</form>
+
+
+</div>

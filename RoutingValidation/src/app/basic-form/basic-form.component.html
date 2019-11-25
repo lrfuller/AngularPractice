@@ -1,0 +1,121 @@
+<p>Basic form page:</p>
+
+<div class="container">
+
+        <div class="col"><br></div>
+        <div class="col text-center">
+          <h1>Enter your information here</h1>
+        </div>
+      
+        <!-- Name, address, date of birth, email, phone -->
+      
+         <form>
+          <div class="form-row">
+            <div class="col align-content-center">
+              <label for="FirstNameInput">First Name:</label>
+              <input id="FirstNameInput" class="form-control" type="text" placeholder="Bob" required>
+            </div>
+            <div class="col">
+              <label for="LastNameInput">Last Name:</label>
+              <input class="form-control" type="text" placeholder="Joe" required>
+            </div>
+      
+          </div>
+      
+          <div><br></div>
+          <div><br></div>
+      
+          <div class="form-row">
+            <div class="col">
+              <label for="CityInput">City:</label>
+              <input id="CityInput" class="form-control" type="text" placeholder="Richmond" required>
+            </div>
+            <div class="col">
+              <label for="StateInput">State:</label>
+              <input id="StateInput" class="form-control" type="text" placeholder="Virginia" required>
+            </div>
+            <div class="col">
+              <label for="ZipInput">Zip</label>
+              <input id="ZipInput" class="form-control" type="text" placeholder="11111" required>
+            </div>
+      
+          </div>
+      
+          <div><br></div>
+          <div><br></div>
+      
+          <div class="form-row">
+            <div class="col">
+              <label for="DOBInput">Date of Birth:</label>
+              <input input="DOBInput" class="form-control" type="text" placeholder="01/01/2001" required>
+            </div>
+            <div class="col">
+              <label for="EmailInput">Email:</label>
+              <input id="EmailInput" class="form-control" type="text" placeholder="email@gmail.com" required>
+            </div>
+            <div class="col">
+              <label for="PhoneInput">Phone Number:</label>
+              <input id="PhoneInput" class="form-control" type="text" placeholder="(000) 000-0000" required>
+            </div>
+          </div>
+      
+          <div><br></div>
+      
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form> 
+      
+      
+      
+       <!-- main app container -->
+      <!-- <div class="card m-3">
+          <h5 class="card-header">Angular 8 Template-Driven Form Validation</h5>
+          <div class="card-body">
+              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
+                  <div class="form-row">
+                      <div class="form-group col-6">
+                          <label>First Name</label>
+                          <input type="text" name="firstName" class="form-control" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required placeholder="Bob">
+                          <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                              <div *ngIf="firstName.errors.required">First Name is required</div>
+                          </div>
+                      </div>
+                      <div class="form-group col-6">
+                          <label>Last Name</label>
+                          <input type="text" name="lastName" class="form-control" [(ngModel)]="model.lastName" #lastName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required placeholder="Joe">
+                          <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                              <div *ngIf="lastName.errors.required">Last Name is required</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email placeholder="email@gmail.com">
+                      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                          <div *ngIf="email.errors.required">Email is required</div>
+                          <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      
+                  </div>
+                  <div class="text-center">
+                      <button class="btn btn-primary mr-1">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div> -->
+      
+      <!-- credits -->
+      <!-- <div class="text-center">
+          <p>
+              <a href="https://jasonwatmore.com/post/2019/06/15/angular-8-template-driven-forms-validation-example" target="_top">Angular 8 - Template-Driven Forms Validation Example</a>
+          </p>
+          <p>
+              <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+          </p>
+      </div> -->
+          
+      
+      
+      </div>
+      

@@ -1,0 +1,71 @@
+<!-- V1
+looks not as clean
+ -->
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col">
+        <h3 class="text-center">HomePage</h3>
+    </div>
+  </div>
+
+  <nav>
+    <div class="col nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+            aria-controls="nav-home" aria-selected="true" routerLink="basicForm">Basic Form</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+            aria-controls="nav-profile" aria-selected="false" routerLink="basicForm2">Basic Form2</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+            aria-controls="nav-contact" aria-selected="false"routerLink="testingFrontEnd">Testing Front End</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+            aria-controls="nav-contact" aria-selected="false"routerLink="validation">Validation</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+            aria-controls="nav-contact" aria-selected="false"routerLink="validation2">Validation2</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+            aria-controls="nav-contact" aria-selected="false"routerLink="validation3">Validation3</a>
+    </div>
+</nav>
+  
+</div>
+
+<router-outlet></router-outlet> -->
+
+
+<!-- V2
+  Looks Cleaner 
+-->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3 class="text-center">HomePage</h3>
+    </div>
+  </div>
+
+  <nav>
+    <div class="col nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+        aria-controls="nav-home" aria-selected="true" routerLink="basicForm">Basic Form</a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+        aria-controls="nav-profile" aria-selected="false" routerLink="basicForm2">Basic Form2</a>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+        aria-controls="nav-contact" aria-selected="false" routerLink="testingFrontEnd">Testing Front End</a>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+        aria-controls="nav-contact" aria-selected="false" routerLink="validation">Validation</a>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+        aria-controls="nav-contact" aria-selected="false" routerLink="validation2">Validation2</a>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+        aria-controls="nav-contact" aria-selected="false" routerLink="validation3">Validation3</a>
+      <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+        aria-controls="nav-contact" aria-selected="false" routerLink="displayingData">tutorial1</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+        aria-controls="nav-contact" aria-selected="false" routerLink="userInput">tutorial2</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+        aria-controls="nav-contact" aria-selected="false" routerLink="lifeCycleHooks">tutorial3</a>
+    </div>
+  </nav>
+  <div class="col tabbedContent">
+    <router-outlet></router-outlet>
+  </div>
+  
+</div>

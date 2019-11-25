@@ -1,0 +1,92 @@
+Validation 2 page:
+
+<div class="container jumbotron">
+    <form #infoForm="ngForm" novalidate>
+      <div class="form-row text-center">
+        <div class="col">
+            <h4 class="display-4">Enter info</h4>
+        </div>
+      </div>
+  
+      <br>
+  
+      <div class="form-row">
+        <div class="col">
+          <label>First Name:<span class="redAsterisk">*</span><span class="smallFont">1-50 characters</span></label>
+          <input name="name1" #name1="ngModel" class="form-control" type="text" 
+          [(ngModel)]="user.firstName" pattern="^[a-zA-Z]{1,50}$" required placeholder="Bob"/>
+          <div *ngIf="name1.dirty && name1.invalid" class="alert alert-danger">Please enter a valid name</div>
+        </div>
+        <div class="col">
+          <label>Last Name:<span class="redAsterisk">*</span><span class="smallFont">1-50 characters</span></label>
+          <input name="name2" class="form-control" type="text" [(ngModel)]="user.lastName" #name2="ngModel" pattern="^[a-zA-Z]{1,50}$"
+          required placeholder="Joe"/>
+          <div *ngIf="name2.dirty && name2.invalid" class="alert-danger alert">Please enter a valid name</div>
+        </div>
+      </div>
+  
+      <br>
+  
+      <div class="form-row">
+        <div class="col-6">
+            <label>Adress line 1:<span class="redAsterisk">*</span></label>
+            <input class="form-control" type="text" name="address1" #address1="ngModel" [(ngModel)]="user.addressLine1"
+            pattern="^[a-zA-Z0-9äöüÄÖÜ. ]*$" required/>
+            <div class="alert-danger alert" *ngIf="address1.dirty && address1.invalid">Please enter a valid address</div>
+        </div>
+        <div class="col-3">
+          <label>City</label>
+          <input class="form-control"/>
+        </div>
+        <div class="col-3">
+          <label>State</label>
+          <input class="form-control"/>
+        </div>
+      </div>
+  
+      <br>
+  
+      <div class="form-row">
+        <div class="col-6">
+          <label>Address line 2:</label>
+          <input class="form-control" type="text"/>
+        </div>
+        <div class="col-3"></div>
+        <div class="col-3">
+          <label>Zip code:</label>
+          <input class="form-control" type="text"/>
+        </div>
+      </div>
+  
+      <br>
+  
+      <div class="form-row">
+        <div class="col-6">
+          <label>Email:</label>
+          <input class="form-control"/>
+        </div>
+        <div class="col-3">
+          <label>Phone Number:</label>
+          <input class="form-control"/>
+        </div>
+        <div class="col-3">
+          <label>Date of Birth:</label>
+          <input class="form-control"/>
+        </div>
+      </div>
+  
+      <br>
+  
+      <div class="form-row">
+        <div class="col-10"></div>
+        <div class="col-1">
+          <button class="btn btn-secondary" type="reset">Cancel</button>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary formSubmitBtn" type="submit" (click)="getInfo()" name="submit" [disabled]="infoForm.invalid">Submit</button>
+        </div>
+      </div>
+  
+  
+    </form>
+  </div>

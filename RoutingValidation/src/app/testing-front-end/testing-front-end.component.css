@@ -1,0 +1,8 @@
+.mouseOverText{
+    border: solid black;
+}
+.invalidText{
+    color:red;
+    position:absolute;
+    z-index:1;
+}

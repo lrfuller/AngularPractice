@@ -1,0 +1,102 @@
+<!-- <div class="headerPRISM d-flex flex-column flex-md-row align-items-center p-3 px-md-4">
+        <div class="col-4 leftHeading">
+          <a href="/home"><i class="pr-3 fa fa-home whiteIcons fa-3x" aria-hidden="true"></i></a>
+          <i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
+        </div>
+        <div class="col-4 text-center">
+          <h4>PRISM</h4>
+        </div>
+        <div class="col-4 text-right rightHeading">
+          <h4 class="inlineH4 pr-2">Logged in as:</h4><i class="fa fa-sign-out fa-1x" aria-hidden="true"></i>
+        </div>
+</div> -->
+      
+      <div class="container">
+        <div class="row text-right">
+          <div class="col-8 languageBreak">
+            <!--Space--><br></div>
+          <div id="google_translate_element" class="col-4"></div>
+        </div>
+      
+      
+        <div class="row">
+          <div class="col-12 yellowDiv">
+            <h3>General Requests</h3>
+          </div>
+        </div>
+      
+      
+        <br>
+      
+        <nav class="generalForm">
+        <form #generalRequest="ngForm">
+          <div class="form-row">
+            <div class="col-6 form-group">
+              <label>Ticket ID:</label>
+              <input class="form-control removeMargin" type="text" readonly>
+            </div>
+            <div class="col-6 form-group">
+              <label>Status:</label>
+              <input class="form-control removeMargin" type="text" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-6 form-group">
+              <label>Last Updated on:</label>
+              <input class="form-control removeMargin" type="text" readonly>
+            </div>
+            <div class="col-6 form-group">
+              <label>Last Updated by:</label>
+              <input class="form-control removeMargin" type="text" readonly>
+            </div>
+          </div>
+          </form>
+      
+          <br>
+      
+          <!-- V1 -->
+          <!-- <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-original-tab" data-toggle="tab" href="#nav-original" role="tab" aria-controls="nav-home" aria-selected="true" routerLink="original">Original View</a>
+                <a class="nav-item nav-link" id="nav-editable-tab" data-toggle="tab" href="#nav-editable" role="tab" aria-controls="nav-profile" aria-selected="false" routerLink="editable">Editable View</a>
+                <a class="nav-item nav-link" id="nav-split-tab" data-toggle="tab" href="#nav-split" role="tab" aria-controls="nav-contact" aria-selected="false" routerLink="split">Split View</a>
+                <a class="nav-item nav-link" id="nav-documents-tab" data-toggle="tab" href="#nav-documents" role="tab" aria-controls="nav-contact" aria-selected="false" routerLink="documents">Documents</a>
+                <a class="nav-item nav-link" id="nav-comments-tab" data-toggle="tab" href="#nav-comments" role="tab" aria-controls="nav-contact" aria-selected="false" routerLink="comments">Comments History</a>
+                <a class="nav-item nav-link" id="nav-assign-tab" data-toggle="tab" href="#nav-assign" role="tab" aria-controls="nav-contact" aria-selected="false" routerLink="assign">Assign To</a>
+              </div>
+              <div class="col tab-content">
+                  <router-outlet></router-outlet>
+              </div>
+            </nav> -->
+
+            <!-- V2 -->
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-original-tab" data-toggle="tab" href="#nav-original" role="tab" aria-controls="nav-home" aria-selected="true">Original View</a>
+                  <a class="nav-item nav-link" id="nav-editable-tab" data-toggle="tab" href="#nav-editable" role="tab" aria-controls="nav-profile" aria-selected="false">Editable View</a>
+                  <a class="nav-item nav-link" id="nav-split-tab" data-toggle="tab" href="#nav-split" role="tab" aria-controls="nav-contact" aria-selected="false">Split View</a>
+                  <a class="nav-item nav-link" id="nav-documents-tab" data-toggle="tab" href="#nav-documents" role="tab" aria-controls="nav-contact" aria-selected="false">Documents</a>
+                  <a class="nav-item nav-link" id="nav-comments-tab" data-toggle="tab" href="#nav-comments" role="tab" aria-controls="nav-contact" aria-selected="false">Comments History</a>
+                  <a class="nav-item nav-link" id="nav-assign-tab" data-toggle="tab" href="#nav-assign" role="tab" aria-controls="nav-contact" aria-selected="false">Assign To</a>
+                </div>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-original" role="tabpanel" aria-labelledby="nav-home-tab"><app-general-original></app-general-original></div>
+                    <div class="tab-pane fade" id="nav-editable" role="tabpanel" aria-labelledby="nav-profile-tab"><app-general-editable></app-general-editable></div>
+                    <div class="tab-pane fade" id="nav-split" role="tabpanel" aria-labelledby="nav-contact-tab"><app-general-split></app-general-split></div>
+                    <div class="tab-pane fade" id="nav-documents" role="tabpanel" aria-labelledby="nav-contact-tab"><app-general-documents></app-general-documents></div>
+                    <div class="tab-pane fade" id="nav-comments" role="tabpanel" aria-labelledby="nav-contact-tab"><app-general-comments></app-general-comments></div>
+                    <div class="tab-pane fade" id="nav-assign" role="tabpanel" aria-labelledby="nav-contact-tab"><app-general-assign></app-general-assign></div>
+                </div>
+            </nav>
+
+      
+      <!-- generalForm nav -->
+        </nav>
+      <!-- generalForm nav -->
+      
+      
+      
+      
+        <!--CONTAINER DIV-->
+      </div>
+      <!-- CONTAINER DIV -->

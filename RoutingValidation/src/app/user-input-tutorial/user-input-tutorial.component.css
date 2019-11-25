@@ -1,0 +1,8 @@
+.message{
+    position: absolute;
+    z-index: 1;
+}
+
+.message2{
+    margin:2px;
+}

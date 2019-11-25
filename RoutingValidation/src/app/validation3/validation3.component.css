@@ -1,0 +1,15 @@
+.jumbotron{
+    background-color:#000d6d54;
+    padding-bottom: 1rem;
+}
+
+.infoForm:disabled{
+    color: #000;
+    background-color: #eee;
+    border-color: #eee;
+}
+
+.alert-danger{
+    position: absolute;
+    z-index: 1;
+}

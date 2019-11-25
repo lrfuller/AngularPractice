@@ -1,0 +1,24 @@
+/* .btn-primary:disabled {
+    color: #000;
+    background-color: #eee;
+    border-color: #eee;
+} */
+.testDisabled:disabled{
+    color: #000;
+    background-color: #eee;
+    border-color: #eee;
+}
+.asterisk{
+    color: red;
+}
+
+.smallFont{
+    font-size: 10px;
+}
+.alert{
+    position: absolute;
+    z-index: 1;
+}
+.jumbotron{
+    background-color:#3a66b638;
+}
