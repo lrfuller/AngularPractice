@@ -8,7 +8,7 @@ import { Validation2Component } from './validation2/validation2.component';
 import { Validation3Component } from './validation3/validation3.component';
 import { DisplayingDataComponent } from './displaying-data/displaying-data.component';
 import { UserInputTutorialComponent } from './user-input-tutorial/user-input-tutorial.component';
-import { LifecycleHooksComponent } from './lifecycle-hooks/lifecycle-hooks.component';
+
 
 const routes: Routes = [
   { path: 'basicForm', component: BasicFormComponent },
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'validation3', component: Validation3Component },
   { path: 'displayingData', component: DisplayingDataComponent },
   { path: 'userInput', component: UserInputTutorialComponent },
-  { path: 'lifeCycleHooks', component: LifecycleHooksComponent },
+
 
 ];
 
@@ -29,4 +29,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [BasicFormComponent, BasicForm2Component, TestingFrontEndComponent, 
-  ValidationComponent, Validation2Component, Validation3Component, UserInputTutorialComponent, DisplayingDataComponent, LifecycleHooksComponent]
+  ValidationComponent, Validation2Component, Validation3Component, UserInputTutorialComponent, DisplayingDataComponent, ]

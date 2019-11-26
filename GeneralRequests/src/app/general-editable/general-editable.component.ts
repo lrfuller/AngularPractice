@@ -32,6 +32,7 @@ export class GeneralEditableComponent implements OnInit {
         this.getComment(editor);
       });
     };
+  
   }
 
   ngOnInit() {
@@ -57,7 +58,6 @@ export class GeneralEditableComponent implements OnInit {
   }
 
   getComment(editor: any){
-    this.len = 0;
     if (tinymce.activeEditor.getContent({ format: 'text' }).length > 5000) {
       let len: any = tinymce.activeEditor.getContent({ format: 'text' }).length;
       let re = len - 5000;
