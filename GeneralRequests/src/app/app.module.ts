@@ -6,19 +6,25 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
-// import { GeneralRequestsComponent } from './general-requests/general-requests.component';
+import { NgxMaskModule } from 'ngx-mask';
+import { NgxTinymceModule } from 'ngx-tinymce';
+//wrong tinymce V
+// import { EditorModule } from '@tinymce/tinymce-angular';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponent,
     HeaderComponent,
-    // GeneralRequestsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgxMaskModule.forRoot(),
+    NgxTinymceModule.forRoot({}),
+    // EditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
