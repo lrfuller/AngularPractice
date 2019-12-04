@@ -1,0 +1,16 @@
+.loginDiv{
+    padding:3rem;
+    background-color:#343a40;
+    color: #eee;
+    margin-top:10rem;
+    margin-left:10%;
+    margin-right:10%;
+    margin-bottom:3rem;
+}
+.loginTitle{
+    background-color:#4484CE;
+    color:white;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+}

@@ -13,4 +13,7 @@ export class GeneralOriginalComponent implements OnInit {
   ngOnInit() {
   }
 
+  //see:
+  //general-editable.component.ts
+  //for user login scripts
 }

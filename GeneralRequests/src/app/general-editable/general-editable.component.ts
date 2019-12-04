@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
-import { RequestorDto } from '../requestorDto'
+import { RequestorDto } from '../requestorDto';
 declare let tinymce: any;
 
 @Component({

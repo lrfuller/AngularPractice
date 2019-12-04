@@ -1,0 +1,32 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color:#c3adad24;
+}
+
+.invalidText{
+    position:absolute;
+    color:red;
+}
+
+.content {
+    padding-top:6rem;
+    position: absolute;
+    top: 0;
+    left: 11%;
+    width: 89%;
+    padding-left: 2%;
+    padding-right: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+
+
+
+.centerContent {
+    width: 100%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}

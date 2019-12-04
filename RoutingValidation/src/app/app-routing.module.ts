@@ -8,6 +8,7 @@ import { Validation2Component } from './validation2/validation2.component';
 import { Validation3Component } from './validation3/validation3.component';
 import { DisplayingDataComponent } from './displaying-data/displaying-data.component';
 import { UserInputTutorialComponent } from './user-input-tutorial/user-input-tutorial.component';
+import { StorageComponent } from './storage/storage.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'validation3', component: Validation3Component },
   { path: 'displayingData', component: DisplayingDataComponent },
   { path: 'userInput', component: UserInputTutorialComponent },
+  { path: 'storage', component: StorageComponent},
 
 
 ];
@@ -29,4 +31,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [BasicFormComponent, BasicForm2Component, TestingFrontEndComponent, 
-  ValidationComponent, Validation2Component, Validation3Component, UserInputTutorialComponent, DisplayingDataComponent, ]
+  ValidationComponent, Validation2Component, Validation3Component, UserInputTutorialComponent, DisplayingDataComponent,
+  StorageComponent, ]

@@ -1,0 +1,401 @@
+
+<div class="content">
+    <div class="centerContent">
+
+
+        
+        <!-- <div class="row">
+
+        <div class="col appInfoDiv">
+            <p>This application displays the information requests received from the website.</p>
+            <p>Admins: Please assign the requests to respective SME's based on the request. You can do this from
+                "assigned to" section. You will receive a notification when SME completes the request. Please close the
+                ticket once the request is complete.</p>
+            <p><strong>SME's:</strong> You can see the tickets assigned to you in the below buckets. Please close the
+                request once the response/comment has been submitted from your "assigned to" section.</p>
+            <p>Note: Ticket will be closed only based on admin's approval. Notification will be sent to requestor once
+                the ticket is closed.</p>
+        </div>
+    </div> -->
+
+        
+        <!-- <div>
+        <p>
+            <a class="btn btn-primary" data-toggle="collapse" href="#usefulTips" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="fa fa-plus fa-1x" aria-hidden="true"></i></a>
+        </p>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="collapse collapse" id="usefulTips">
+                    <div class="card card-body">
+                        <p>This application displays the information requests received from the website.</p>
+                        <p>Admins: Please assign the requests to respective SME's based on the request. You can do this from "assigned to" section. You will receive a notification when SME completes the request. Please close the ticket once the request is
+                            complete.
+                        </p>
+                        <p><strong>SME's:</strong> You can see the tickets assigned to you in the below buckets. Please close the request once the response/comment has been submitted from your "assigned to" section.
+                        </p>
+                        <p>Note: Ticket will be closed only based on admin's approval. Notification will be sent to requestor once the ticket is closed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br> -->
+
+
+        <div class="pos-f-t">
+                <nav class="navbar navbar-dark bg-dark">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <!-- <span class="navbar-toggler-icon"></span> -->
+                    <i class="fa fa-plus fa-1x" aria-hidden="true"></i>
+
+                  </button>
+                </nav>
+                <div class="collapse" id="navbarToggleExternalContent">
+                        <div class="bg-dark p-4">
+                          <span class="text-white">
+                                <p>This application displays the information requests received from the website.</p>
+                                <p>Admins: Please assign the requests to respective SME's based on the request. You can do this from "assigned to" section. You will receive a notification when SME completes the request. Please close the ticket once the request is
+                                    complete.
+                                </p>
+                                <p><strong>SME's:</strong> You can see the tickets assigned to you in the below buckets. Please close the request once the response/comment has been submitted from your "assigned to" section.
+                                </p>
+                                <p>Note: Ticket will be closed only based on admin's approval. Notification will be sent to requestor once the ticket is closed.</p>
+                          </span>
+                        </div>
+                      </div>
+              </div>
+        <br>
+
+        <div class="row text-center">
+
+            <div class="col-md-3">
+                <div class="card blueTheme">
+                    <div class="card-header">Overall Open</div>
+                    <div class="card-body">
+                    <h5 class="card-title">{{pieChartData[0]}}</h5>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-3">
+                    <div class="card blueTheme">
+                    <div class="card-header">Overall Closed</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{pieChartData[1]}}</h5>
+                    </div>
+                    </div>
+            </div>
+            <div class="col-md-3">
+                    <div class="card blueTheme">
+                    <div class="card-header">Pending more than 7 days</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{pieChartData[2]}}</h5>
+                    </div>
+                    </div>
+            </div>
+            <div class="col-md-3">
+                    <div class="card blueTheme">
+                    <div class="card-header">Pending more than 2 weeks</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{pieChartData[3]}}</h5>
+                    </div>
+                    </div>
+            </div>
+          
+
+
+
+        </div>
+
+
+
+        <br>
+        <div class="row">
+            <div class="col-sm-5 text-center">
+                <!-- <div class="card blueTheme"> -->
+                    <h2 class="text-center">Test Data</h2>
+                    <canvas baseChart
+                          [data]="pieChartData"
+                          [labels]="pieChartLabels"
+                          [chartType]="pieChartType"
+                          [options]="pieChartOptions"
+                          (chartHover)="chartHovered($event)"
+                          (chartClick)="chartClicked($event)"></canvas>
+                <!-- </div> -->
+            </div>
+        </div>
+
+
+
+        <!-- testing using cards, lists, and nav bar -->
+        <!-- <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Open</a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Closed</a>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <div class="row">
+                            <div class="col-sm-4">
+                                <div class="card text-center openCards">
+                                    <div class="card-header"><h3>General Requests</h3></div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">1</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card bg-light text-center">
+                                    <div class="card-header"><h3>Medallion</h3></div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">2</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card bg-light text-center">
+                                    <div class="card-header"><h3>CCC Plus</h3></div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">5</h3>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            row div
+                        </div>  
+                            row div
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                        <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  General Requests
+                                                  <span class="badge badge-primary badge-pill">14</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Medallion
+                                                  <span class="badge badge-primary badge-pill">2</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  CCC Plus
+                                                  <span class="badge badge-primary badge-pill">1</span>
+                                                </li>
+                                              </ul>
+                                </div>
+                                <div class="col-sm-6">
+                                        <ul class="list-group">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Procurements
+                                                  <span class="badge badge-primary badge-pill">1</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Media Requests
+                                                  <span class="badge badge-primary badge-pill">7</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                  Reported Problems
+                                                  <span class="badge badge-primary badge-pill">12</span>
+                                                </li>
+                                              </ul>
+                                </div>
+                                
+                            row div
+                            </div>  
+                            row div
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="row">
+                            <div class="col-sm-4">
+                                <div class="card closedCards text-center">
+                                    <div class="card-header"><h3>General Requests</h3></div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">1</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card bg-light text-center">
+                                    <div class="card-header"><h3>Medallion</h3></div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">2</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="card bg-light text-center">
+                                    <div class="card-header"><h3>CCC Plus</h3></div>
+                                    <div class="card-body">
+                                        <h3 class="card-title">5</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+
+                            <div class="row">
+                                    <div class="col-sm-6">
+                                            <ul class="list-group">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                      General Requests
+                                                      <span class="badge badge-primary badge-pill">14</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                      Medallion
+                                                      <span class="badge badge-primary badge-pill">2</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                      CCC Plus
+                                                      <span class="badge badge-primary badge-pill">1</span>
+                                                    </li>
+                                                  </ul>
+                                    </div>
+                                    <div class="col-sm-6">
+                                            <ul class="list-group">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                      Procurements
+                                                      <span class="badge badge-primary badge-pill">1</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                      Media Requests
+                                                      <span class="badge badge-primary badge-pill">7</span>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                      Reported Problems
+                                                      <span class="badge badge-primary badge-pill">12</span>
+                                                    </li>
+                                                  </ul>
+                                    </div>
+                                    
+                            </div>  
+            </div>
+          </div>-->
+
+        <!-- <div class="row">
+        <div class="col-sm-4">
+            <div class="requestIcons">
+                <h3>General Requests</h3>
+                <div class="col-sm-6 pull-left">
+                    <span class="dot pendingDot"></span>
+                </div>
+                <div class="col-sm-6 pull-left">
+                    <span class="dot closedDot"></span>
+                </div>
+                <div class="col-sm-6 pull-left">
+                    Open
+                </div>
+                <div class="col-sm-6 pull-right">
+                    Closed
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="requestIcons">
+                <h3>Medallion 4.0</h3>
+                <div class="col-sm-6 pull-left">
+                    <span class="dot pendingDot"></span>
+                </div>
+                <div class="col-sm-6 pull-right">
+                    <span class="dot closedDot"></span>
+                </div>
+                <div class="col-sm-6 pull-left">
+                    <p>Open</p>
+                </div>
+                <div class="col-sm-6 pull-right">
+                    <p>Closed</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="requestIcons">
+                <h3>CCC Plus</h3>
+                <div class="col-sm-6 pull-left">
+                    <span class="dot pendingDot"></span>
+                    <p>Open</p>
+                </div>
+                <div class="col-sm-6 pull-right">
+                    <span class="dot closedDot"></span>
+                    <p>Closed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="requestIcons">
+                <h3>Procurements</h3>
+                <div class="col-sm-6 pull-left">
+                    <span class="dot pendingDot"></span>
+                    <p>Open</p>
+                </div>
+                <div class="col-sm-6 pull-right">
+                    <span class="dot closedDot"></span>
+                    <p>Closed</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="requestIcons">
+                <h3>Media Requests</h3>
+                <div class="col-sm-6 pull-left">
+                    <span class="dot pendingDot"></span>
+                    <p>Open</p>
+                </div>
+                <div class="col-sm-6 pull-right">
+                    <span class="dot closedDot"></span>
+                    <p>Closed</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="requestIcons">
+                <h3>Reported Problems</h3>
+                <div class="col-sm-6 pull-left">
+                    <nav class="dot pendingDot"></nav>
+                    <P>Open</P>
+                </div>
+                <div class="col-sm-6 pull-right">
+                    <nav class="dot closedDot"></nav>
+                    <p>Closed</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="requestIcons">
+                <h3>Elected Official Requests</h3>
+                <div class="col-sm-6 pull-left">
+                    <nav class="dot pendingDot"></nav>
+                    <p>Open</p>
+                </div>
+                <div class="col-sm-6 pull-right">
+                    <nav class="dot closedDot"></nav>
+                    <p>Closed</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="requestIcons">
+                <h3>Admin</h3>
+                <div class="col">
+                    <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+        <!-- centerContent div -->
+    </div>
+    <!-- centerContent div -->
+
+    <!-- container div -->
+</div>
+<!-- container div -->

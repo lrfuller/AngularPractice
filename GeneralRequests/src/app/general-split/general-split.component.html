@@ -1,1 +1,290 @@
-<p>general-split works!</p>
+<form #editableForm="ngForm" novalidate>
+<div class="form-row">
+    <div class="col-md-6">
+        <!-- <form #originalForm="ngForm"> -->
+            <!-- Left Tab: Original -->
+            <div class="form-row form-group">
+                <div class="col">
+                    <h4>Requestor's Residency</h4>
+                    <hr>
+                </div>
+            </div>
+            <div class="form-row form-group">
+                <div class="col-md-6">
+                    <label>Resident of Virginia</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+                <div class="col-md-6"><!--Space--></div>
+            </div>
+        
+            <br>
+        
+            <div class="form-row">
+                <div class="col">
+                    <h4>Requestor's Information</h4>
+                    <hr>
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label>Requestor's first name</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label>Requestor's last name</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+            </div>
+        
+            <br>
+        
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label>Requestor's phone</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label>Requestor's email</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+            </div>
+        
+            <br>
+        
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label>Mailiing address line 1</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label>Mailing address line 2</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+            </div>
+        
+            <br>
+        
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label>City</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+                <div class="col-md-6">
+                    <label>State</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+            </div>
+        
+            <br>
+        
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label>Zip code</label>
+                    <input class="form-control" type="text" readonly>
+                </div>
+                <div class="col-md-6"><!--Space--></div>
+            </div>
+        
+            <br>
+        
+            <div class="form-row">
+                <div class="col">
+                    <label>Request description</label>
+                    <input class="smallInput" readonly>
+                </div>
+            </div>
+        
+        <!-- </form> -->
+    </div>
+
+    <!-- Right Tab: Editable -->
+    <div class="col-md-6">
+            <!-- <form #editableForm="ngForm" novalidate> -->
+                    <div class="form-row form-group">
+                        <div class="col">
+                            <h4>Requestor's Residency</h4>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="form-row form-group">
+                        <div class="col-md-6">
+                            <label>Resident of Virginia<span class="asterisk">*</span> </label>
+                            <select class="form-control" name="resident" #resident="ngModel" [(ngModel)]="user.resident" required >
+                                <option value=""></option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            <div class="invalidText" *ngIf="resident.invalid && resident.dirty">Invalid</div>
+                        </div>
+                        <div class="col-md-6"><!--Space--></div>
+                    </div>
+            
+                    <br>
+                
+                    <div class="form-row">
+                        <div class="col">
+                            <h4>Requestor's Information</h4>
+                            <hr>
+                        </div>
+                    </div>
+                
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label>Requestor's first name<span class="asterisk">*</span> </label>
+                            <input id="firstNameInput" class="form-control" type="text" required pattern="^[a-zA-z,.'-]{1,50}$" #firstName="ngModel" name="firstName" [(ngModel)]="user.firstName"> 
+                            <div id="firstNameValidation" class="invalidText" *ngIf="firstName.invalid && firstName.touched" >first name is required</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Requestor's last name<span class="asterisk">*</span> </label>
+                            <input class="form-control" type="text" name="lastName" #lastName="ngModel" [(ngModel)]="user.lastName" required pattern="^[a-zA-z,.'-]{1,50}$">
+                            <div class="invalidText" *ngIf="lastName.touched && lastName.invalid" >last name is required</div>
+                        </div>
+                    </div>
+            
+                    <br>
+                
+                
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label>Requestor's phone<span class="asterisk">*</span></label>
+                            <input class="form-control" type="text" mask="(000) 000-0000" name="phone" #phone="ngModel" [(ngModel)]="user.phoneNumber" >
+                            <div class="invalidText" *ngIf="phone.touched && phone.invalid">phone number is required</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Requestor's email<span class="asterisk">*</span></label>
+                            <input class="form-control" type="text" name="email" #email="ngModel" [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required >
+                            <div class="invalidText" *ngIf="email.touched && email.invalid">email is required</div>
+                        </div>
+                    </div>
+                
+                    <br>
+                
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label>Mailiing address line 1<span class="asterisk">*</span></label>
+                            <input class="form-control" type="text" name="address1" #address1="ngModel" [(ngModel)]="user.addressLine1" required pattern="^[a-zA-Z0-9äöüÄÖÜ. ]{1,50}$" >
+                            <div class="invalidText" *ngIf="address1.touched && address1.invalid">address is required</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Mailing address line 2</label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+            
+                    <br>
+                
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label>City<span class="asterisk">*</span></label>
+                            <input class="form-control" type="text" name="city" #city="ngModel" [(ngModel)]="user.city" pattern required="^[a-zA-z,.'-]{1,50}$">
+                            <div class="invalidText" *ngIf="city.invalid && city.touched">city is required</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>State:<span class="asterisk">*</span></label>
+                      <select class="form-control" name="state" #state="ngModel" [(ngModel)]="user.state" required>
+                        <option value="" selected>Choose an Option</option>
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AR">AR</option>
+                        <option value="AZ">AZ</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DC">DC</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="IA">IA</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="MA">MA</option>
+                        <option value="MD">MD</option>
+                        <option value="ME">ME</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MO">MO</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="NC">NC</option>
+                        <option value="NE">NE</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NV">NV</option>
+                        <option value="NY">NY</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WI">WI</option>
+                        <option value="WV">WV</option>
+                        <option value="WY">WY</option>
+                      </select>
+                            <div class="invalidText" *ngIf="state.invalid && state.touched">state is requried</div>
+                        </div>
+                    </div>
+            
+                    <br>
+                
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label>Zip code<span class="asterisk">*</span></label>
+                            <input class="form-control" type="text" name="zip" #zip="ngModel" [(ngModel)]="user.zipCode" pattern="^-?(0|[1-9]\d*)?$" maxlength="5" minlength="5" required>
+                            <div class="invalidText" *ngIf="zip.invalid && zip.touched">zip code is required</div>
+                        </div>
+                        <div class="col-md-6"><!--Space--></div>
+                    </div>
+            
+                    <br>
+            
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Request description</label>
+                            <input class="smallInput" name="reqDescription" #reqDescription="ngModel" [(ngModel)]="user.comments" readonly>
+                        </div>
+                    </div>
+            
+                    <br>
+            
+                    
+                
+                
+    </div>
+</div>
+<br>
+<div class="form-row">
+        <div class="col">
+            <label>Comments</label>
+            <!-- <textarea id="tinyMce" rows="8" name="comments" #comments="ngModel" [(ngModel)]="user.comments" required
+            (keyup)="getComment($event)"></textarea> -->
+            <tinymce id="tinyMce" name="comments" [(ngModel)]="user.comments" [config]="config"></tinymce>
+            Remaining {{5000 -len}}
+        </div>
+    </div>
+
+    <br>
+
+    <div class="form-row">
+        <div class="col-md-10"><!--SPACE--> </div>
+        <div class="col-md-2 text-right">
+            <button class="btn btn-secondary" type="reset">Cancel</button>
+            <button class="btn btn-primary" type="submit" (click)="saveUser()" [disabled]="editableForm.invalid" >Save</button>
+        </div>
+    </div>
+</form>

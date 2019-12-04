@@ -1,0 +1,108 @@
+/*.col-sm-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+} 
+.appInfoDiv {
+    padding: 1rem;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.appInfoDiv p {
+    margin: .7rem;
+}
+
+.requestIcons {
+    height: 100%;
+    background-color: #cec3c37a;
+    border-style: solid;
+    border-color: white;
+    border-width: .3rem;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+.dot {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: block;
+    line-height: 100px;
+    margin: 0 auto;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.pendingDot {
+    background-color: #81C341;
+}
+
+.closedDot {
+    background-color: #28B1C5;
+}
+
+.square {
+    padding-top: 3%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+
+.box1 {
+    width: 100%;
+    margin-bottom: 12px;
+    background: #999;
+    clear: both;
+    background-color: #EBEBEB;
+    align-self: flex-end;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px;
+    border: 5px solid #fff;
+    background-position: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.closedCards {
+    background-color: #28b1c547;
+}
+
+.openCards {
+    background-color: #81c3417a;
+} */
+
+
+
+
+
+.cardHeader{
+    background-color:rgba(8, 8, 8, 0.11);
+    border-bottom:1px solid rgba(0, 0, 0, 0.17);
+}
+
+.blueTheme{
+    background-color:#4484CE;
+    color: #eee;
+}
+
+
+/*at 1747px, left nav starts to wrap*/
+@media only screen and (max-width: 1747px) {
+
+}
