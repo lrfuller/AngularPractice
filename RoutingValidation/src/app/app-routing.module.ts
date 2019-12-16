@@ -9,6 +9,8 @@ import { Validation3Component } from './validation3/validation3.component';
 import { DisplayingDataComponent } from './displaying-data/displaying-data.component';
 import { UserInputTutorialComponent } from './user-input-tutorial/user-input-tutorial.component';
 import { StorageComponent } from './storage/storage.component';
+import { StickyComponent } from './sticky/sticky.component';
+import { BarchartComponent } from './barchart/barchart.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   { path: 'displayingData', component: DisplayingDataComponent },
   { path: 'userInput', component: UserInputTutorialComponent },
   { path: 'storage', component: StorageComponent},
+  { path: 'sticky', component: StickyComponent},
+  { path: 'barchart', component: BarchartComponent }
 
 
 ];
@@ -32,4 +36,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [BasicFormComponent, BasicForm2Component, TestingFrontEndComponent, 
   ValidationComponent, Validation2Component, Validation3Component, UserInputTutorialComponent, DisplayingDataComponent,
-  StorageComponent, ]
+  StorageComponent, StickyComponent, BarchartComponent]

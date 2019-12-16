@@ -87,22 +87,70 @@
     background-color: #81c3417a;
 } */
 
-
-
-
-
-.cardHeader{
-    background-color:rgba(8, 8, 8, 0.11);
-    border-bottom:1px solid rgba(0, 0, 0, 0.17);
+.usefulTipDiv {
+    padding-bottom: 1rem;
 }
 
-.blueTheme{
-    background-color:#4484CE;
+.toggleText {
+    color: white;
+}
+
+.cardHeader {
+    background-color: rgba(8, 8, 8, 0.11);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.17);
+}
+
+.blueTheme {
+    background-color: #4484CE;
     color: #eee;
+}
+
+.custom-col-md-3, .custom-col-md-5, .col-md-7 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    /* padding-right: 15px;
+    padding-left: 15px; */
+}
+@media (min-width: 768px) {
+    /* used to remove the space between each div, but add padding on the edges, as well as custom column width and padding*/
+    .custom-col-md-1 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 8.333333%;
+        flex: 0 0 8.333333%;
+        max-width: 1.333333%;
+    }
+    .custom-col-md-3 {
+        padding: 0;
+        max-width: 24%;
+        width: 100%;
+    }
+    .custom-col-md-5 {
+        padding: 0;
+        max-width: 40.3%;
+        width: 100%;
+    }
+}
+
+.row {
+    padding: 15px;
+}
+
+@media only screen and (max-width: 767px) {
+    .custom-col-md-1 {
+        display: none;
+    }
+    
 }
 
 
 /*at 1747px, left nav starts to wrap*/
-@media only screen and (max-width: 1747px) {
 
+@media only screen and (max-width: 1747px) {
+    /* .col-md-1 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 8.333333%;
+        flex: 0 0 8.333333%;
+        max-width: 0.333333%;
+        } */
 }

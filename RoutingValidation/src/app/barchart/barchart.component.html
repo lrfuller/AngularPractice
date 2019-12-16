@@ -1,0 +1,58 @@
+
+<h1>
+    {{title}}
+  </h1>
+  
+  <div>
+    <canvas
+        baseChart
+        [chartType]="'bar'"
+        [datasets]="chartData"
+        [labels]="labels"
+        [options]="chartOptions"
+        [legend]="true"
+        [colors]="colors"
+        (chartClick)="onChartClick($event)">
+    </canvas>
+  </div>
+
+
+
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="radarChartData"
+            [labels]="radarChartLabels"
+            [chartType]="radarChartType"></canvas>
+  </div>
+
+
+
+  
+  <!-- radar graph practice -->
+  <div class="row graphRow text-center">
+    <div class="col-md-7 card blueTheme">
+      <div class="custom"></div>
+      <canvas baseChart
+        [datasets]="dataChartSet4"
+        [labels]="barChartLabels4"
+        [chartType]="barChartType4"
+        [colors]="barChartColors4"
+        [options]="barChartOptions4"
+        [legend]="true"
+      ></canvas>
+    </div>
+    
+    <div class="custom-col-md-1">
+        <!-- Empty Space -->
+    </div>
+
+    <div class="card bg-light custom-col-md-4">
+        <h2>Mock Data Graph</h2>
+        <canvas baseChart
+            [datasets]="dataChartSet3"
+            [labels]="radarChartLabels3"
+            [chartType]="radarChartType3"
+            
+            [options]="radarChartOptions3"></canvas>
+    </div>
+  </div>

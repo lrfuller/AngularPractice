@@ -17,7 +17,7 @@
             <div class="form-row">
                 <div class="col">
                     <label>Password</label>
-                    <input class="form-control" type="text" name="password" #password="ngModel" [(ngModel)]="tempUser.password" minlength="1" maxlength="50" required>
+                    <input class="form-control" type="password" name="password" #password="ngModel" [(ngModel)]="tempUser.password" minlength="1" maxlength="50" required>
                     <div class="invalidText" *ngIf="password.invalid && password.touched" >password is required</div>
                 </div>
             </div>
@@ -25,11 +25,14 @@
             <br>
 
             <div class="form-row">
-                <div class="col text-right">
+                <div class="col-10 text-left">
+                        <strong>This application uses COV credentials. Please contact VCCC for any login problems.</strong>
+                </div>
+                <div class="col-2 text-right">
                     <button class="btn btn-primary" type="button"  (click)="submitLogin()" [disabled]="loginForm.invalid" >Login</button>
                 </div>
             </div>
         </form>
-        <strong>This application uses COV credentials. Please contact VCCC for any login problems.</strong>
+        
     </div>
 </div>

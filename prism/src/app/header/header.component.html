@@ -1,26 +1,26 @@
-<nav class="navbar navbar-expand-mdmb-4 prismHeader">
-    <div class="col text-left leftHeading">
-        <!-- <a class="whiteIcons" href="/home"><i class="fa fa-home mr-3 fa-3x" aria-hidden="true" ></i></a> -->
+<nav class="navbar navbar-expand-mdmb-4 prismHeader stickyHeader">
+    <!-- <div class="col text-left leftHeading">
         <i class="whiteIcons fa fa-home mr-3 fa-3x" (click)="homeClick()" aria-hidden="true" ></i>
         <i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
-    </div>
+    </div> -->
+    <!-- <div class="col translateDiv"> -->
+        <div id="google_translate_element" class="col translateDiv"></div>
+    <!-- </div> -->
     <div class="col text-center">
         <h3>PRISM</h3>
     </div>
+    <div class="col hiddenSpacing"></div>
+    
     <div class="col text-right rightHeading">
         <!-- <h5 class="">Logged in as: {{user1.userName}} -->
-        <h5 class="">Logged in as:
+        <h5>Logged in as: 
         <i class="fa fa-sign-out fa-1x" aria-hidden="true" (click)="logoutClick()"></i></h5>
     </div>
 </nav>
 
-<div class="container">
-    <div id="google_translate_element" class="col text-right">
-        <!-- need google translate here -->
-    </div>
-</div>
 
-<div class="layout-sidebar" *ngIf="router.url != '/login'">
+
+<div class="layout-sidebar fixed-top stickyLeftNav" *ngIf="router.url != '/login'">
         <div class="sidebar-wrapper">
             <ul class="nav rti">
                 <li routerLink="/home" routerLinkActive="active"><a>Homepage</a></li>
@@ -31,10 +31,22 @@
                 <li><a>Media Requests</a></li>
                 <li><a>Reported Problems</a></li>
                 <li><a>Elected Official Requests</a></li>
-                <li><a>Billing</a></li>
-                <li><a>FAQ's</a></li>
-                <li><a>Admin</a></li>
-    
             </ul>
         </div>
     </div>
+
+
+    <!-- <div class="layout-sidebar fixed-top stickyLeftNav">
+        <div class="sidebar-wrapper">
+            <ul class="nav rti">
+                <li routerLink="/home" routerLinkActive="active" *ngIf="user.role === 'general'"><a>Homepage</a></li>
+                <li routerLink="/general" routerLinkActive="active" *ngIf="user.role === 'general'"><a>General Requests</a></li>
+                <li *ngIf="user.role === 'admin'"><a>Medallion 4.0</a></li>
+                <li *ngIf="user.role === 'admin'"><a>CCC Plus</a></li>
+                <li *ngIf="user.role === 'admin'"><a>Procurements</a></li>
+                <li *ngIf="user.role === 'admin'"><a>Media Requests</a></li>
+                <li *ngIf="user.role === 'admin'"><a>Reported Problems</a></li>
+                <li *ngIf="user.role === 'admin'"><a>Elected Official Requests</a></li>
+            </ul>
+        </div>
+    </div> -->
