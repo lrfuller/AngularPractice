@@ -1,0 +1,141 @@
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  
+  #progressbar li {
+    list-style-type: none;
+    color: #99a2a8;
+    font-size: 9px;
+    width: calc(100%/6);
+    float: left;
+    position: relative;
+    font: 500 13px 'Roboto', sans-serif;
+    cursor: pointer;
+  }
+  
+  #progressbar li:nth-child(2):before {
+    content: "2";
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:nth-child(3):before {
+    content: "3";
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:nth-child(4):before {
+    content: "4";
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:nth-child(5):before {
+    content: "5";
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:nth-child(6):before {
+    content: "6";
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:nth-child(7):before {
+    content: "7";
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:nth-child(8):before {
+    content: "8";
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:nth-child(9):before {
+    content: "9";
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:nth-child(10):before {
+    content: "10";
+    padding-left: 0.6rem;
+  }
+  
+  #progressbar li:nth-child(11):before {
+    content: "11";
+    padding-left: 0.6rem;
+  }
+  
+  #progressbar li:nth-child(12):before {
+    content: "12";
+    padding-left: 0.6rem;
+  }
+  
+  #progressbar li:nth-child(13):before {
+    content: "13";
+    padding-left: 0.6rem;
+  }
+  
+  #progressbar li:before {
+    content: "1";
+    font: normal normal normal 30px/50px Ionicons;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    background: #eaf0f4;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    font-family: FontAwesome;
+    padding-left: 1.2rem;
+  }
+  
+  #progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 10px;
+    background: #eaf0f4;
+    position: absolute;
+    left: 33%;
+    top: 21px;
+    z-index: -1;
+  }
+  
+  #progressbar li:last-child:after {
+    width: 150%;
+    left: -83%;
+  }
+  
+  #progressbar li.active {
+    color: #2199e8;
+  }
+  
+  #progressbar li span {
+    font-size: 11px;
+    color: #000;
+  }
+  
+  #progressbar li.active:before, #progressbar li.active:after {
+    background: #2199e8;
+    color: white;
+  }
+  
+  .fade:not(.show) {
+    display: none;
+  }
+  
+  .disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+  
+  #progressbar li.complete:before, #progressbar li.complete:after {
+    background: #5cb85c!important;
+    color: #fff;
+  }
+  
+  #progressbar .complete li {
+    color: #5cb85c!important;
+  }
+
+  /* .newPopup .modal-dialog {
+    max-width:90vw !important;
+  } */

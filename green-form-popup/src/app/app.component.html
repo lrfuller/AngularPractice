@@ -1,0 +1,207 @@
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col text-center">
+      Green form pop-up
+    </div>
+  </div>
+
+
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="z-index: 1080;">
+      <form #infoForm="ngForm" novalidate>
+       
+        <ul id="progressbar" style="margin-left: 10px;margin-right: 10px;">
+          <li class="" (click)="view1=true; view2=false; view3=false; view4=false; view5=false; view6=false"  [ngClass]="view1?'active':''">
+            <p class="text-center">Username</p>
+          </li>
+          <li class="" (click)="view2=true; view1=false; view3=false; view4=false; view5=false; view6=false" [ngClass]="view2?'active':''" >
+            <p class="text-center">Password</p>
+          </li>
+          <li class="" (click)="view1=false; view2=false; view3=true; view4=false; view5=false; view6=false" [ngClass]="view3?'active':''">
+            <p class="text-center">State</p>
+          </li>
+          <li class="" (click)="view1=false; view2=false; view3=false; view4=true; view5=false; view6=false" [ngClass]="view4?'active':''">
+            <p class="text-center">View4</p>
+          </li>
+          <li class="" (click)="view1=false; view2=false; view3=false; view4=false; view5=true; view6=false" [ngClass]="view5?'active':''">
+            <p class="text-center">View5</p>
+          </li>
+          <li class="" (click)="view1=false; view2=false; view3=false; view4=false; view5=false; view6=true" [ngClass]="view6?'active':''">
+            <p class="text-center">View6</p>
+          </li>
+        </ul>
+
+
+        <div class="row">
+          <div class="col-3" *ngIf="view1">
+            <label>Username</label>
+            <input class="form-control" type="text"  name="usernameHTML" #usernameHTML="ngModel" [(ngModel)]="usernameTS"
+             minlength="3" maxlength="25" required>
+            <!-- <div *ngIf="usernameHTML.valid">VALIDDD</div> -->
+          </div>
+          <!-- <div *ngIf="view1" class="col-2" style="padding-top:40px;">{{usernameTS}}</div> -->
+
+          <div class="col-3" *ngIf="view2">
+            <label>Password</label>
+            <input class="form-control" type="text">
+          </div>
+
+          <div class="col-3" *ngIf="view3">
+            <label>State</label>
+            <select class="form-control">
+              <option value="">Choose an Option</option>
+              <option value="AL">AL</option>
+              <option value="AK">AK</option>
+              <option value="AR">AR</option>
+              <option value="AZ">AZ</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+              <option value="CT">CT</option>
+              <option value="DC">DC</option>
+              <option value="DE">DE</option>
+              <option value="FL">FL</option>
+              <option value="GA">GA</option>
+              <option value="HI">HI</option>
+              <option value="IA">IA</option>
+              <option value="ID">ID</option>
+              <option value="IL">IL</option>
+              <option value="IN">IN</option>
+              <option value="KS">KS</option>
+              <option value="KY">KY</option>
+              <option value="LA">LA</option>
+              <option value="MA">MA</option>
+              <option value="MD">MD</option>
+              <option value="ME">ME</option>
+              <option value="MI">MI</option>
+              <option value="MN">MN</option>
+              <option value="MO">MO</option>
+              <option value="MS">MS</option>
+              <option value="MT">MT</option>
+              <option value="NC">NC</option>
+              <option value="NE">NE</option>
+              <option value="NH">NH</option>
+              <option value="NJ">NJ</option>
+              <option value="NM">NM</option>
+              <option value="NV">NV</option>
+              <option value="NY">NY</option>
+              <option value="ND">ND</option>
+              <option value="OH">OH</option>
+              <option value="OK">OK</option>
+              <option value="OR">OR</option>
+              <option value="PA">PA</option>
+              <option value="RI">RI</option>
+              <option value="SC">SC</option>
+              <option value="SD">SD</option>
+              <option value="TN">TN</option>
+              <option value="TX">TX</option>
+              <option value="UT">UT</option>
+              <option value="VT">VT</option>
+              <option value="VA">VA</option>
+              <option value="WA">WA</option>
+              <option value="WI">WI</option>
+              <option value="WV">WV</option>
+              <option value="WY">WY</option>
+            </select>
+          </div>
+
+          <div class="col-3" *ngIf="view4">
+            <p>View 4</p>
+          </div>
+
+          <div class="col-3" *ngIf="view5">
+            <p>View 5</p>
+          </div>
+
+          <div class="col-3" *ngIf="view6">
+            <p>View 6</p>
+          </div>
+
+
+        </div>
+
+
+
+
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button>
+  
+  <hr>
+  
+  <pre>{{closeResult}}</pre>
+
+
+
+
+
+
+
+
+
+  <!-- <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="z-index: 1080;">
+      <form>
+       
+        <ul id="progressbar" style="margin-left: 10px;margin-right: 10px;">
+          <li class="active"><p class="text-center">Source</p></li>
+          <li class="active"><p class="text-center">Policy</p></li>
+          <li class="active"><p class="text-center">Audit</p></li>
+          <li class="active"><p class="text-center">Controls</p></li>
+          <li class="active"><p class="text-center">Findings</p></li>
+          <li class="active"><p class="text-center">Recommendations</p></li>
+          <li class="active"><p class="text-center">Source</p></li>
+          <li class="active"><p class="text-center">Policy</p></li>
+          <li class="active"><p class="text-center">Audit</p></li>
+          <li class="active"><p class="text-center">Controls</p></li>
+          <li class="active"><p class="text-center">Findings</p></li>
+          <li class="active"><p class="text-center">Recommendations</p></li>
+          <li class="active"><p class="text-center">Recommendations</p></li>
+  
+        </ul>
+
+
+
+
+
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  <button class="btn btn-lg btn-outline-primary" (click)="open2(content)">Launch demo modal</button>
+  
+  <hr>
+  
+  <pre>{{closeResult}}</pre> -->
+
+
+
+
+  
+
+
+
+</div>
