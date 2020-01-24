@@ -1,0 +1,27 @@
+  .custom-file label{
+    font-weight: normal;
+  }
+  .stepBorder{
+    border:1px solid black;
+    padding:1rem;
+  }
+  .row div{
+    padding-bottom:15px;
+  }
+
+  .alert{
+    padding:15px;
+    position: relative;
+    z-index: 1;
+    line-height: 15px;
+  }
+
+  @media (min-width:767px){
+    .alert{
+      padding:5px;
+      position: absolute;
+      z-index: 1;
+      line-height: 15px;
+    }
+  }
+  

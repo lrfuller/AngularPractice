@@ -1,0 +1,1236 @@
+<div class="container">
+    <br><br>
+
+
+
+    
+    <div class="row text-center">
+        
+        <!-- <div class="custom-col-4">
+            <div class="card greenCard mb-3">
+                <div class="card-header">New Ticket</div>
+                <div class="card-body">
+                    <h5 class="card-title">1</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col-4">
+            <div class="card bg-light mb-3">
+                <div class="card-header">Expiring Today</div>
+                <div class="card-body">
+                    <h5 class="card-title">2</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col-4">
+            <div class="card blueCard mb-3">
+                <div class="card-header">Expiring within 5 days</div>
+                <div class="card-body">
+                    <h5 class="card-title">5</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col-4">
+            <div class="card orangeCard mb-3">
+                <div class="card-header">Pending with me</div>
+                <div class="card-body">
+                    <h5 class="card-title">6</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="custom-col-4">
+            <div class="card orangeCard mb-3">
+                <div class="card-header">New Ticket</div>
+                <div class="card-body">
+                    <h5 class="card-title">1</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col-4">
+            <div class="card orangeCard mb-3">
+                <div class="card-header">Expiring Today</div>
+                <div class="card-body">
+                    <h5 class="card-title">2</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col-4">
+            <div class="card orangeCard mb-3">
+                <div class="card-header">Expiring within 5 days</div>
+                <div class="card-body">
+                    <h5 class="card-title">5</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="custom-col-4">
+            <div class="card orangeCard mb-3">
+                <div class="card-header">Pending with me</div>
+                <div class="card-body">
+                    <h5 class="card-title">6</h5>
+                    <p class="card-text"></p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <form #tableForm="ngForm">
+        <div class="row">
+            <div class="col">
+                <label>Source</label>
+                <select class="form-control">
+                    <option value="option1">Choose...</option>
+                </select>
+            </div>
+            <div class="col">
+                <label>Category</label>
+                <select class="form-control">
+                    <option value="option1">Choose...</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label>Date From</label>
+                <my-date-picker [options]="myDatePickerOptions" [placeholder]="datePlaceholder">
+                </my-date-picker>
+            </div>
+            <div class="col">
+                <label>Date To</label>
+                <my-date-picker [options]="myDatePickerOptions" [placeholder]="datePlaceholder">
+                </my-date-picker>
+            </div>
+        </div>
+
+    </form>
+
+    <br>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr style="background-color:#0000008f; color:white">
+                <th>Ticket ID</th>
+                <th>Assigned To</th>
+                <th>Requested For</th>
+                <th>Requestor Type</th>
+                <th>Source</th>
+                <th>Email</th>
+                <th>Rec Date</th>
+                <th>Due Date</th>
+                <th>Last Updated By</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a style="font-weight: bold; color:blue; cursor: pointer"
+                        (click)="open(content); viewStart()">TD4467B6</a></td>
+                <td>SME</td>
+                <td>John Smith</td>
+                <td>Organization</td>
+                <td>Phone</td>
+                <td>john64@soch-inc.com</td>
+                <td>10/05/2019</td>
+                <td>2/25/2020</td>
+                <td>Bill Johnson</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+    <br><br>
+    <div class="row">
+        <div class="col text-center">
+            <!-- <p>Hello {{user.username}} let’s create a ticket! Click the following button to get started</p> -->
+        </div>
+    </div>
+
+
+    <form #infoForm="ngForm">
+        <ng-template #content let-modal>
+            <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title" *ngIf="view1">Information</h4>
+                <h4 class="modal-title" id="modal-basic-title" *ngIf="view2">Assessment</h4>
+                <h4 class="modal-title" id="modal-basic-title" *ngIf="view3">Assignment/Response</h4>
+                <h4 class="modal-title" id="modal-basic-title" *ngIf="view4">Costs/Payment Information</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="z-index: 1080;">
+
+                <ul id="progressbar" style="padding-left:0px">
+                    <li [ngClass]="{'active' : view1, 'complete' : viewed1===true && view1===false}">
+                        <p class="text-center">Information</p>
+                    </li>
+                    <li [ngClass]="{'active' : view2, 'complete' : viewed2===true && view2===false}">
+                        <p class="text-center">Assessment</p>
+                    </li>
+                    <li [ngClass]="{'active' : view3, 'complete' : viewed3===true && view3===false}">
+                        <p class="text-center">Assignment/Response</p>
+                    </li>
+                    <!-- <li class="fifth" [ngClass]="{'active' : view5, 'complete' : viewed5===true && view5===false}">
+                        <p class="text-center">Response</p>
+                    </li> -->
+                    <li [ngClass]="{'active zChange0': view4, 'complete' : viewed4===true && view4===false}">
+                        <p class="text-center">Costs/Payment Information</p>
+                    </li>
+                    <!-- <li [ngClass]="{'active' : view6, 'complete' : viewed6===true && view6===false}">
+                        <p class="text-center">Payment Information</p>
+                    </li> -->
+                </ul>
+
+
+                <br><br><br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Ticket ID#</label>
+                        <input class="form-control" type="text" name="ticketIDhtml" #ticketIDhtml="ngModel"
+                            [(ngModel)]="user.tickedID" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Source</label>
+                        <input class="form-control" type="text" name="sourceHTML" #sourceHTML="ngModel"
+                            [(ngModel)]="user.source" disabled>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Status</label>
+                        <input class="form-control" type="text" name="statusHTML" #statusHTML="ngModel"
+                            [(ngModel)]="user.status" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label>Date Received</label>
+                        <my-date-picker [options]="myDatePickerOptions" [placeholder]="datePlaceholder" name="dateHTML" 
+                            #dateHTML="ngModel" [(ngModel)]="user.date" disabled>
+                        </my-date-picker>
+                        <!-- <input class="form-control" type="text" 
+                        name="dateHTML" #dateHTML="ngModel" [(ngModel)]="dateString" disabled> -->
+                    </div>
+                </div>
+                <br>
+
+                <div class="row" *ngIf="view1">
+                    <div class="col-md-6">
+                        <label>Expected Response Date</label>
+                        <my-date-picker [options]="myDatePickerOptions" [placeholder]="datePlaceholder"
+                            name="expectedDateHTML" #expectedDateHTML="ngModel" [(ngModel)]="user.expectedDate">
+                        </my-date-picker>
+                    </div>
+                </div>
+                <br>
+                <!-- <div class="row buttonRow">
+                    <button class="btn btn-dark" style="margin-left:auto; margin-right:10px">Check Delinquent</button>
+                    <button class="btn btn-dark">Match Existing Ticket</button>
+                </div> -->
+                <br>
+
+
+                <div *ngIf="view1">
+
+                    <h2>Contact Information</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Are you a Resident of Virginia? <span class="required">*</span></label>
+                            <select class="form-control" name="residentHTML" #residentHTML="ngModel"
+                                [(ngModel)]="user.resident" required>
+                                <!-- <option>Choose an Option:</option> -->
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                            <div *ngIf="residentHTML.invalid && residentHTML.touched" class="alert alert-danger">
+                                Requestor's residency
+                                required</div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>What category best describes the requestor? <span class="required">*</span></label>
+                            <select class="form-control" name="categoryHTML" #categoryHTML="ngModel"
+                                [(ngModel)]="user.category" required>
+                                <!-- <option>Choose an Option:</option> -->
+                                <option value="Procurement Records">Procurement Records</option>
+                                <option value="My Records">My Records</option>
+                                <option value="Land Records">Land Records</option>
+                                <option value="General Requests">General Requests</option>
+                            </select>
+                            <div *ngIf="categoryHTML.invalid && categoryHTML.touched" class="alert alert-danger">
+                                Category required
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3>Requestor Information</h3>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>First Name <span class="required">*</span></label>
+                            <input class="form-control" type="text" minlength="3" maxlength="50"
+                                placeholder="First Name" pattern="^(?![\s])[a-zA-ZäöüÄÖÜ.]{1,50}$" name="fNameHTML"
+                                #fNameHTML="ngModel" [(ngModel)]="user.firstName" required>
+                            <!-- <div *ngIf="fNameHTML.invalid && fNameHTML.touched" class="alert alert-danger">Requestor's first name is required</div> -->
+                            <div *ngIf="fNameHTML.errors && fNameHTML.invalid && fNameHTML.touched"
+                                class="alert alert-danger">
+                                <span *ngIf="fNameHTML.errors.required">First name is required. </span>
+                                <span *ngIf="fNameHTML.errors.pattern">No spaces or special characters except ".".
+                                </span>
+                                <span *ngIf="fNameHTML.errors.minlength">Must be at least 3 characters. </span>
+                                <span *ngIf="fNameHTML.errors.maxlength">Can't exceed 50 characters.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Middle Name</label>
+                            <input class="form-control" type="text" minlength="3" maxlength="50"
+                                placeholder="Middle Name" pattern="^(?![\s])[a-zA-ZäöüÄÖÜ.]{1,50}$" name="mNameHTML"
+                                #mNameHTML="ngModel" [(ngModel)]="user.middleName">
+                            <div *ngIf="mNameHTML.errors && mNameHTML.invalid && mNameHTML.touched"
+                                class="alert alert-danger">
+                                <span *ngIf="mNameHTML.errors.pattern">No spaces or special characters except ".".
+                                </span>
+                                <span *ngIf="mNameHTML.errors.minlength"> Must be at least 3 characters. </span>
+                                <span *ngIf="mNameHTML.errors.maxlength">Can't exceed 50 characters.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Last Name <span class="required">*</span></label>
+                            <input class="form-control" type="text" minlength="3" maxlength="50" placeholder="Last Name"
+                                pattern="^(?![\s])[a-zA-ZäöüÄÖÜ.]{1,50}$" name="lNameHTML" #lNameHTML="ngModel"
+                                [(ngModel)]="user.lastName" required>
+                            <!-- <div *ngIf="lNameHTML.invalid && lNameHTML.touched" class="alert alert-danger">Requestor's last name is required</div> -->
+                            <div *ngIf="lNameHTML.errors && lNameHTML.invalid && lNameHTML.touched"
+                                class="alert alert-danger">
+                                <span *ngIf="lNameHTML.errors.required">Last name is required. </span>
+                                <span *ngIf="lNameHTML.errors.pattern">No spaces or special characters except ".".
+                                </span>
+                                <span *ngIf="lNameHTML.errors.minlength">Must be at least 3 characters. </span>
+                                <span *ngIf="lNameHTML.errors.maxlength">Can't exceed 50 characters.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Phone Number <span class="required">*</span></label>
+                            <input class="form-control" placeholder="(111) 111-1111" type="text"
+                                [specialCharacters]="[ '(' ,')' , '-', ' ' ]" mask="(000) 000-0000" name="phoneHTML"
+                                #phoneHTML="ngModel" [(ngModel)]="user.phoneNumber" minlength="10" required />
+                            <!-- <div *ngIf="phoneHTML.invalid && phoneHTML.touched" class="alert alert-danger">Requestor's phone number is
+                            required</div> -->
+                            <div *ngIf="phoneHTML.errors && phoneHTML.invalid && phoneHTML.touched"
+                                class="alert alert-danger">
+                                <span *ngIf="phoneHTML.errors.required">Requestor's phone number is required</span>
+                                <span *ngIf="phoneHTML.errors.minlength">Must be 10 digits</span>
+                                <!-- <span *ngIf="phoneHTML.errors.pattern"></span> -->
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Email <span class="required">*</span></label>
+                            <input class="form-control" placeholder="example@gmail.com" type="text" minlength="3"
+                                maxlength="50" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="emailHTML"
+                                #emailHTML="ngModel" [(ngModel)]="user.email" required>
+                            <!-- <div *ngIf="emailHTML.invalid && emailHTML.touched" class="alert alert-danger">Requestor's email address is required</div> -->
+                            <div *ngIf="emailHTML.errors && emailHTML.invalid && emailHTML.touched"
+                                class="alert alert-danger">
+                                <span *ngIf="emailHTML.errors.required">Email required. </span>
+                                <span *ngIf="emailHTML.errors.pattern">Must follow a similar format:
+                                    test@gmail.com</span>
+                                <span *ngIf="emailHTML.errors.minlength"></span>
+                                <span *ngIf="emailHTML.errors.maxlength"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Confirm Email <span class="required">*</span></label>
+                            <input class="form-control" placeholder="example@gmail.com" type="text" name="cEmailHTML"
+                                #cEmailHTML="ngModel" [(ngModel)]="user.confirmEmail" required>
+                            <div *ngIf="emailHTML.value!=cEmailHTML.value && cEmailHTML.touched"
+                                class="alert alert-danger">Emails
+                                must match</div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Address Line 1 <span class="required">*</span></label>
+                            <input class="form-control" type="text" placeholder="2125 Chesnut ST" minlength="3"
+                                maxlength="50" pattern="^(?![\s])[a-zA-Z0-9äöüÄÖÜ. ]*$" name="address1HTML"
+                                #address1HTML="ngModel" [(ngModel)]="user.address1" required>
+                            <div *ngIf="address1HTML.errors && address1HTML.invalid && address1HTML.touched "
+                                class="alert alert-danger">
+                                <span *ngIf="address1HTML.errors.required">Address Line 1 is required. </span>
+                                <span *ngIf="address1HTML.errors.pattern">Can't start with a space. </span>
+                                <span *ngIf="address1HTML.errors.minlength">Address Line 1 is required. </span>
+                                <span *ngIf="address1HTML.errors.maxlength">Address Line 1 is required. </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Address Line 2</label>
+                            <input class="form-control" type="text" placeholder="Apartment No." minlength="3"
+                                maxlength="50" pattern="^(?![\s])[a-zA-Z0-9äöüÄÖÜ. ]*$" name="address2HTML"
+                                #address2HTML="ngModel" [(ngModel)]="user.address2">
+                            <div *ngIf="address2HTML.errors && address2HTML.invalid && address2HTML.touched "
+                                class="alert alert-danger">
+                                <!-- <span *ngIf="address2HTML.errors.required">Address Line 2 is required</span> -->
+                                <span *ngIf="address2HTML.errors.pattern">Can't start with a space. </span>
+                                <span *ngIf="address2HTML.errors.minlength">Must be 3 characters. </span>
+                                <!-- <span *ngIf="address2HTML.errors.maxlength">Mailing Address is required</span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>City <span class="required">*</span></label>
+                            <input class="form-control" type="text" minlength="3" maxlength="50"
+                                pattern="^(?![\s])[a-zA-Z]{1,50}$" name="cityHTML" #cityHTML="ngModel"
+                                [(ngModel)]="user.city" placeholder="Richmond" required>
+                            <div *ngIf="cityHTML.errors && cityHTML.invalid && cityHTML.touched"
+                                class="alert alert-danger">
+                                <span *ngIf="cityHTML.errors.required">City is required. </span>
+                                <span *ngIf="cityHTML.errors.minlength">City must be 3 characters. </span>
+                                <!-- <span *ngIf="cityHTML.errors.maxlength"> </span> -->
+                                <span *ngIf="cityHTML.errors.pattern">Can't start with a space, no numbers, or special
+                                    characters.</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>State <span class="required">*</span></label>
+                            <select class="form-control" name="stateHTML" #stateHTML="ngModel" [(ngModel)]="user.state"
+                                required>
+                                <!-- <option >Choose an Option</option> -->
+                                <option value="AL">AL</option>
+                                <option value="AK">AK</option>
+                                <option value="AR">AR</option>
+                                <option value="AZ">AZ</option>
+                                <option value="CA">CA</option>
+                                <option value="CO">CO</option>
+                                <option value="CT">CT</option>
+                                <option value="DC">DC</option>
+                                <option value="DE">DE</option>
+                                <option value="FL">FL</option>
+                                <option value="GA">GA</option>
+                                <option value="HI">HI</option>
+                                <option value="IA">IA</option>
+                                <option value="ID">ID</option>
+                                <option value="IL">IL</option>
+                                <option value="IN">IN</option>
+                                <option value="KS">KS</option>
+                                <option value="KY">KY</option>
+                                <option value="LA">LA</option>
+                                <option value="MA">MA</option>
+                                <option value="MD">MD</option>
+                                <option value="ME">ME</option>
+                                <option value="MI">MI</option>
+                                <option value="MN">MN</option>
+                                <option value="MO">MO</option>
+                                <option value="MS">MS</option>
+                                <option value="MT">MT</option>
+                                <option value="NC">NC</option>
+                                <option value="NE">NE</option>
+                                <option value="NH">NH</option>
+                                <option value="NJ">NJ</option>
+                                <option value="NM">NM</option>
+                                <option value="NV">NV</option>
+                                <option value="NY">NY</option>
+                                <option value="ND">ND</option>
+                                <option value="OH">OH</option>
+                                <option value="OK">OK</option>
+                                <option value="OR">OR</option>
+                                <option value="PA">PA</option>
+                                <option value="RI">RI</option>
+                                <option value="SC">SC</option>
+                                <option value="SD">SD</option>
+                                <option value="TN">TN</option>
+                                <option value="TX">TX</option>
+                                <option value="UT">UT</option>
+                                <option value="VT">VT</option>
+                                <option value="VA">VA</option>
+                                <option value="WA">WA</option>
+                                <option value="WI">WI</option>
+                                <option value="WV">WV</option>
+                                <option value="WY">WY</option>
+                            </select>
+                            <div *ngIf="stateHTML.invalid && stateHTML.touched" class="alert alert-danger">State is
+                                required</div>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Zipcode <span class="required">*</span></label>
+                            <input class="form-control" type="text" minlength="5" maxlength="5"
+                                pattern="^-?(0|[1-9]\d*)?$" placeholder="00000" name="zipHTML" #zipHTML="ngModel"
+                                [(ngModel)]="user.zipCode" required>
+                            <div *ngIf="zipHTML.errors && zipHTML.invalid && zipHTML.touched"
+                                class="alert alert-danger">
+                                <span *ngIf="zipHTML.errors.required">Zip Code is required. </span>
+                                <span *ngIf="zipHTML.errors.minlength">Zip Code must be 5 digits. </span>
+                                <!-- <span *ngIf="zipHTML.errors.maxlength">Zip Code </span> -->
+                                <span *ngIf="zipHTML.errors.pattern">Must be a valid Zip Code.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <hr>
+                    <br>
+
+
+                    <h2>Request</h2>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Subject <span class="required">*</span></label>
+                            <input type="text" class="form-control" placeholder="Subject" minlength="3" maxlength="50"
+                                pattern="^[a-zA-Z]{3,50}$" name="subjectHTML" #subjectHTML="ngModel"
+                                [(ngModel)]="user.subject" required>
+                            <div *ngIf="subjectHTML.invalid && subjectHTML.touched" class="alert alert-danger">Subject
+                                required</div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Description<span class="required">*</span></label>
+                            <tinymce name="descHTML" #descHTML="ngModel" [(ngModel)]="user.description"
+                                [config]="config" [disabled]="edit" (ngModelChange)="checkDesc(descHTML.invalid)"
+                                required='required'>
+                            </tinymce>Remaining {{5000 -len}}
+                            <div *ngIf="descText===true" class="alert alert-danger">Description field required</div>
+                        </div>
+                    </div>
+
+
+                    <br>
+                    <hr>
+                    <br>
+                    <h2>Additional Information</h2>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="info" align="justify">If you are seeking records about yourself you can upload
+                                <a href="#">Certification of Identity form</a>
+                                along with a legible copy of your proof of identity. Proof of identity can be a legible
+                                copy of your
+                                current driverâ€™s license, Medicaid card, or government issued identification card.
+                                If you are seeking records of an enrollee or provider, additional documentation is
+                                required. You can
+                                upload <a href="#">DMAS General Consent for Release form</a>. Please also use this tool
+                                if there are
+                                additional documents that support your request such as power of attorney authorizations,
+                                court orders,
+                                custody agreements etc.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="medicaidTextbox">
+                                <h6 class="textBanner" align="justify">
+                                    <i class="fa fa-info-circle" id="infoIcon" aria-hidden="true"></i>
+                                    <b>If you prefer to mail or fax your documentation,
+                                        you may address it to the FOIA Coordinator at 600 East Broad Street, Suite 1300,
+                                        Richmond, VA
+                                        23219
+                                        or by
+                                        fax to <a href="tel:8043714981">804-371-4981</a>
+                                    </b>
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- <input type="file" class="form-control" > -->
+                            <div class="input-group mb-3">
+                                <!-- <div class="input-group-prepend">
+                                <span class="input-group-text">Upload</span>
+                              </div> -->
+
+                                <p><strong>NOTE: Please find the documents from the requestor in the attachment
+                                        section</strong></p>
+                                <!-- <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="inputGroupFile01" name="fileHTML" #fileHTML="ngModel"
+                                [(ngModel)]="user.file">
+                              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <hr>
+                    <br>
+                    <h2>Fee</h2>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="info" align="justify">Medicaid recipients are not charged for copies of their own
+                                claims history
+                                records. Other requesting
+                                individuals (such as, but not limited to, attorneys) will be asked to pay for the
+                                records requested from
+                                the Department of Medical Assistance Services. FOIA allows DMAS to charge for the actual
+                                costs of
+                                responding to FOIA requests. This includes items such as staff time spent searching for
+                                the requested
+                                records, copying costs, or any other costs directly related to supplying the requested
+                                records.
+                                You may request that DMAS provide a cost estimate prior to supplying the records
+                                requested. This will
+                                allow you the opportunity to modify your request in an attempt to lower the estimated
+                                costs if
+                                necessary.
+                                If it is estimated that it will cost more than $200 to respond to your request, you will
+                                be notified in
+                                writing. You must agree to pay the actual charges. Effective 7/1/08, it is required you
+                                to pay a
+                                deposit,
+                                not to exceed the amount of the estimate, before DMAS will proceed with your request.
+                                The five days that
+                                we have to respond to Commonwealth citizens' requests does not include the time between
+                                being asked for
+                                a
+                                deposit and your response.
+                                If you owe DMAS money from a previous FOIA request that has remained unpaid for more
+                                than 30 days, the
+                                Department of Medical Assistance Services requires payment of the past-due bill before
+                                it will respond
+                                to
+                                your new FOIA request.
+                                DMAS only has the ability to receive payment through (personal, business, cashierâ€™s or
+                                certified)
+                                checks
+                                or Money Order made payable to DMAS, Attn: FOIA Coordinator. We cannot take online
+                                payments or credit
+                                cards at this time.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="text-right" style="padding-right:10px;">
+                                <input type="checkbox" value="true" name="feeHTML" #feeHTML="ngModel"
+                                    [(ngModel)]="user.fee" required><strong> Requestor agrees to the above
+                                    terms</strong><span class="required"> *</span>
+                                <div *ngIf="feeHTML.invalid && feeHTML.touched" class="alert alert-danger"
+                                    style="right:10px">Agreement required</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <hr>
+                    <br>
+                    <h2>Submit</h2>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="info" align="justify">Please review the information you entered above before
+                                submitting to DMAS.
+                                Once you submit, DMAS will
+                                contact you regarding any potential fees and/or to discuss your request with you to
+                                ensure that we
+                                understand what records you are seeking.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div class="text-right" style="padding-right:10px">
+                                <input type="checkbox" value="true" name="submitHTML" #submitHTML="ngModel"
+                                    [(ngModel)]="user.submit" required><strong> Requestor agrees to the above terms
+                                </strong><span class="required">*</span>
+                                <div *ngIf="submitHTML.invalid && submitHTML.touched" class="alert alert-danger"
+                                    style="right:10px">
+                                    Agreement required</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <br><br>
+                    <div class="row buttonRow">
+                        <button type="button" class="btn btn-primary nextBtn"
+                            (click)="view2=true; view1=false; viewed2=true" [disabled]="infoForm.invalid">Next</button>
+                    </div>
+                </div>
+
+
+                <!-- Step 2 -->
+                <div *ngIf="view2">
+                    <!-- <div class="row">
+                        <div class="col-md-6">
+                            <label>Please select a category:</label>
+                            <select class="form-control">
+                                <option value="Inter-Agency Data Requests">Inter-Agency Data Requests</option>
+                                <option value="Data Requests">Data Requests</option>
+                                <option value="FOIA">FOIA</option>
+                                <option value="Member Record">Member Record</option>
+                                <option value="Subpoena">Subpoena</option>
+                                <option value="Survey">Survey</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Source</label>
+                            <select class="form-control" name="sourceHTML" #sourceHTML="ngModel" [(ngModel)]="user.source">
+                                <option value="Phone">Phone</option>
+                                <option value="Email">Email</option>
+                                <option value="Fax">Fax</option>
+                                <option value="US Mail">US Mail</option>
+                                <option value="Sheriff">Sheriff</option>
+                                <option value="Others">Others</option>
+                              </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Please Specify Others: <span class="required">*</span></label>
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Is there already avilable data to fulfill the request?</label>
+                            <select class="form-control">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Data Extended?</label>
+                            <select class="form-control">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <label>Comments</label>
+                            <tinymce name="commentsHTML" #commentsHTML="ngModel" [(ngModel)]="user.assessmentComments"
+                            [config]="config" [disabled]="edit">
+                          </tinymce>Remaining {{5000 -len}}
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Is this a valid FOIA request?</label>
+                            <select class="form-control" name="validFOIAhtml" #validFOIAhtml="ngModel"
+                                [(ngModel)]="user.validFOIA" (change)="validFOIAchange()">
+                                <option value="Yes">Yes this is a FOIA request</option>
+                                <option value="Not sure, need more information from the requestor">Not sure, need more
+                                    information from the requestor</option>
+                                <option value="No, this is not a valid FOIA request and close the ticket">No, this is
+                                    not a valid FOIA request and close the ticket</option>
+                                <option
+                                    value="No, this is not a valid FOIA request, but qualifies for data or other requests">
+                                    No, this is not a valid FOIA request, but qualifies for data or other requests
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6" *ngIf="validFOIAhtml.value==='Yes'" style="padding-top:32px">
+                            <button class="btn btn-dark" style="margin-left:auto; margin-right:10px">Match
+                                Delinquent</button>
+                            <button class="btn btn-dark" (click)="this.matchBool=!this.matchBool">Match Existing
+                                Ticket</button>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Do you need to extend the date to process the request?</label>
+                            <select class="form-control">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div *ngIf="validFOIAhtml.value==='Not sure, need more information from the requestor'">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Preferred method of Contact?</label>
+                                <select class="form-control" name="contactHTML" #contactHTML="ngModel"
+                                    [(ngModel)]="user.contact">
+                                    <option value="Email">Email</option>
+                                    <option value="Phone">Phone</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6" *ngIf="contactHTML.value==='Phone'">
+                                <label>Schedule a Date & Time for phone call</label>
+                                <!-- <input [owlDateTime]="dt1" class="form-control" [owlDateTimeTrigger]="dt1" placeholder="Date Time" required>
+                                    <owl-date-time [startAt]="today" #dt1></owl-date-time> -->
+                                <input [owlDateTime]="dt1" class="form-control" [owlDateTimeTrigger]="dt1"
+                                    placeholder="Date Time" required>
+                                <owl-date-time #dt1></owl-date-time>
+                                <!-- <input class="form-control" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1">
+                                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time> -->
+                            </div>
+                            <div class="col-md-6" *ngIf="contactHTML.value==='Email'">
+                                <label></label>
+                            </div>
+
+                        </div>
+
+
+                        <!-- <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Please select a category:</label>
+                                <select class="form-control" name="assessmentCategoryHTML"
+                                    #assessmentCategoryHTML="ngModel" [(ngModel)]="user.assessmentCategory">
+                                    <option value="Inter-Agency Data Requests">Inter-Agency Data Requests</option>
+                                    <option value="Data Requests">Data Requests</option>
+                                    <option value="FOIA">FOIA</option>
+                                    <option value="Member Record">Member Record</option>
+                                    <option value="Subpoena">Subpoena</option>
+                                    <option value="Survey">Survey</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6" *ngIf="assessmentCategoryHTML.value==='Others'">
+                                <label>Please Specify Others:</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div> -->
+
+
+
+                        <br>
+                        <!-- <tinymce name="descHTML" #descHTML="ngModel" [(ngModel)]="user.description"
+                        [config]="config" [disabled]="edit" (ngModelChange)="checkDesc(descHTML.invalid)" required='required'>
+                      </tinymce>Remaining {{5000 -len}} -->
+                        <div class="row" *ngIf="contactHTML.value==='Email'">
+                            <div class="col-md-12">
+                                <label>Email Comment</label>
+                                <tinymce [config]="config" name="emailCommentHTML" #emailCommentHTML="ngModel"
+                                    [(ngModel)]="user.emailComment">
+                                </tinymce>Remaining {{5000 -len}}
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="contactHTML.value==='Phone'">
+                            <div class="col-md-12">
+                                <label>Phone Comment</label>
+                                <tinymce [config]="config" name="phoneCommentHTML" #phoneCommentHTML="ngModel"
+                                    [(ngModel)]="user.phoneComment">
+                                </tinymce>Remaining {{5000 -len}}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div *ngIf="validFOIAhtml.value==='No, this is not a valid FOIA request and close the ticket'">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button class="btn btn-dark" type="button"
+                                    (click)="this.reasonBool = !this.reasonBool">Close the ticket</button>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+                        </div>
+                        <br>
+
+                        <div *ngIf="reasonBool">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Reason and Code</label>
+                                    <select class="form-control">
+                                        <option value="101: ticket is resolved">101: ticket is resolved</option>
+                                        <option value="102: ticket is closed">102: ticket is closed</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Status</label>
+                                    <select class="form-control">
+                                        <option value="In Progress">In Progress</option>
+                                        <option value="Closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Comments</label>
+                                    <tinymce name="closedTicketCommentHTML" #closedTicketCommentHTML="ngModel"
+                                        [(ngModel)]="user.closedTicketComment" [config]="config" [disabled]="edit"
+                                        required='required'>
+                                    </tinymce>Remaining {{5000 -len}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div
+                        *ngIf="validFOIAhtml.value==='No, this is not a valid FOIA request, but qualifies for data or other requests'">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Please select a category</label>
+                                <select class="form-control" name="assessmentCategoryHTML"
+                                    #assessmentCategoryHTML="ngModel" [(ngModel)]="user.assessmentCategory">
+                                    <option value="Inter-Agency Data Requests">Inter-Agency Data Requests</option>
+                                    <option value="Data Requests">Data Requests</option>
+                                    <option value="FOIA">FOIA</option>
+                                    <option value="Member Record">Member Record</option>
+                                    <option value="Subpoena">Subpoena</option>
+                                    <option value="Survey">Survey</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6" *ngIf="assessmentCategoryHTML.value==='Others'">
+                                <label>Please Specify Others</label>
+                                <input class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <br><br>
+                    <div class="row buttonRow">
+                        <button type="button" class="btn btn-primary previousBtn"
+                            (click)="view1=true; view2=false">Previous</button>
+                        <!-- <button type="button" class="btn btn-primary nextBtn"
+                            (click)="view3=true; view2=false; viewed3=true">Next</button> -->
+                        <button type="button" class="btn btn-primary nextBtn" *ngIf="!this.reasonBool"
+                            (click)="view3=true; view2=false; viewed3=true">Next</button>
+                        <button class="btn btn-dark" type="button"
+                            *ngIf="this.reasonBool && validFOIAhtml.value==='No, this is not a valid FOIA request and close the ticket'">Close</button>
+                    </div>
+                </div>
+
+
+                <!-- Step 3 -->
+                <div *ngIf="view3">
+                    <br>
+                    <div class="row buttonRow">
+                        <button class="btn btn-dark" style="margin-left:auto" (click)="open2(content2)">Add</button>
+                        <ng-template #content2 let-modal>
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Assignment</h4>
+                                <button type="button" class="close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form #assignmentForm="ngForm">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label>Select Division<span class="required"> *</span></label>
+                                            <select class="form-control" name="divisionHTML" #divisionHTML="ngModel" [(ngModel)]="tableA.division" required>
+                                                <option>Choose...</option>
+                                                <option value="Division 1">Division 1</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Assign To<span class="required"> *</span></label>
+                                            <input type="text" class="form-control" placeholder="Please enter a name to assign" required>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <!-- <div class="col-md-6">
+                                            <label>Date From<span class="required"> *</span></label>
+                                            <my-date-picker [options]="myDatePickerOptions" [placeholder]="datePlaceholder">
+                                            </my-date-picker>
+                                        </div> -->
+                                        <div class="col-md-6">
+                                            <label>Priority<span class="required"> *</span></label>
+                                            <select class="form-control" required>
+                                                <option value="High">High</option>
+                                                <option value="Medium">Medium</option>
+                                                <option value="Low">Low</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label>Status<span class="required"> *</span></label>
+                                            <select class="form-control" required>
+                                                <option value="In progress">In progress</option>
+                                                <option value="Closed">Closed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="row">
+                                        <!-- <div class="col-md-6">
+                                            <label>Response Date<span class="required"> *</span></label>
+                                            <my-date-picker [options]="myDatePickerOptions" [placeholder]="datePlaceholder">
+                                            </my-date-picker>
+                                        </div> -->
+                                        <div class="col-md-6">
+                                            <label>Expected Close Date<span class="required"> *</span></label>
+                                            <my-date-picker [options]="myDatePickerOptions" [placeholder]="datePlaceholder">
+                                            </my-date-picker>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <!--<div class="row">
+                                        
+                                        <div class="col-md-6">
+                                            <label>Estimation<span class="required"> *</span></label>
+                                            <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                              </div>
+                                              <input class="form-control" type="text" placeholder="1.00">
+                                              </div>
+                                        </div>
+                                        
+                                    </div>-->
+                                    
+                                    <br>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Comments<span class="required"> *</span></label>
+                                            <tinymce [config]="config" [disabled]="edit"
+                                            required='required'>
+                                            </tinymce>Remaining {{5000 -len}}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary"
+                                    (click)="modal.close()" style="margin-right: auto">Cancel</button>
+                                <button type="button" class="btn btn-primary"
+                                    (click)="modal.close('Save click'); logAssignment()">Assign</button>
+                            </div>
+                        </ng-template>
+                    </div>
+
+                    <div class="row">
+                        <table class="table table-striped table-bordered"
+                            style="margin:1rem ">
+                            <thead style="background-color: black; color: white">
+                                <tr>
+                                    <th>Division</th>
+                                    <th>Assigned To</th>
+                                    <th>Priority</th>
+                                    <th>Comment</th>
+                                    <th>Expected close date</th>
+                                    <th>Response date</th>
+                                    <th>Status</th>
+                                    <th>Estimates</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr *ngFor="ticket tickets"> -->
+                                    <tr>
+                                    <td>Division 1</td>
+                                    <td>Billy Johnson</td>
+                                    <td>Medium</td>
+                                    <td><i class="fa fa-comment" aria-hidden="true" (click)="open3(content3)" style="cursor: pointer;"></i></td>
+                                    <td>02/13/2020</td>
+                                    <td>01/23/2020</td>
+                                    <td>Closed</td>
+                                    <td>$10.00</td>
+                                    <td><i class="fa fa-pencil-square-o " aria-hidden="true" style="cursor: pointer;" (click)="open4(content4)"></i>
+                                        <i class="fa fa-trash " aria-hidden="true" style="cursor: pointer; padding-left: 10px;"></i></td>
+                                        
+                                    <!-- <td>{{ticket}}</td>
+                                    <td>{{ticket}}</td>
+                                    <td>{{ticket}}</td>
+                                    <td><i class="fa fa-comment" aria-hidden="true" (click)="open3(content3)" style="cursor: pointer;"></i></td>
+                                    <td>{{ticket}}</td>
+                                    <td>{{ticket}}</td>
+                                    <td>{{ticket}}</td>
+                                    <td>{{ticket}}</td>
+                                    <td><i class="fa fa-pencil-square-o " aria-hidden="true" style="cursor: pointer;" (click)="open4(content4)"></i>
+                                        <i class="fa fa-trash " aria-hidden="true" style="cursor: pointer; padding-left: 10px;"></i></td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <ng-template #content3 let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Comment</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Sample comment here</p>
+                        </div>
+                        <!-- <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                        </div> -->
+                      </ng-template>
+
+                      <ng-template #content4 let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal-basic-title">Edit</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Save Edit</button>
+                        </div>
+                      </ng-template>
+                    <br>
+
+                    
+                    <div>
+                        <label>Attachment</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="margin-left:1rem; margin-right:1rem">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                            <label class="custom-file-label" for="inputGroupFile01" style="font-weight: normal">Choose file</label>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Response Comment</label>
+                            <tinymce [config]="config" [disabled]="edit"
+                            required='required'>
+                            </tinymce>Remaining {{5000 -len}}
+                        </div>
+                    </div>
+
+
+                    <br><br>
+                    <div class="row buttonRow">
+                        <button type="button" class="btn btn-primary previousBtn"
+                            (click)="view2=true; view3=false">Previous</button>
+                        <button type="button" class="btn btn-primary nextBtn"
+                            (click)="view4=true; view3=false; viewed4=true">Next</button>
+                    </div>
+                </div>
+
+
+                <!-- Step 4 -->
+                <div *ngIf="view4">
+                    <div class="row">
+                        <div class="col-3">
+                            <p>View 4</p>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div class="row buttonRow">
+                        <button type="button" class="btn btn-primary previousBtn"
+                            (click)="view3=true; view4=false">Previous</button>
+                        <button type="button" class="btn btn-primary nextBtn"
+                            (click)="view5=true; view4=false; viewed5=true">Next</button>
+                    </div>
+                </div>
+
+
+                <!-- Step 5 -->
+                <div *ngIf="view5">
+                    <div class="row">
+                        <div class="col-3">
+                            <p>View 5</p>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div class="row buttonRow">
+                        <button type="button" class="btn btn-primary previousBtn"
+                            (click)="view4=true; view5=false">Previous</button>
+                        <button type="button" class="btn btn-primary nextBtn"
+                            (click)="view6=true; view5=false; viewed6=true">Next</button>
+                    </div>
+                </div>
+
+
+                <!-- Step 6 -->
+                <div *ngIf="view6">
+                    <div class="row">
+                        <div class="col-3">
+                            <p>View 6</p>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    <div class="row buttonRow">
+                        <button type="button" class="btn btn-primary previousBtn"
+                            (click)="view5=true; view6=false">Previous</button>
+                        <!-- <button type="button" class="btn btn-primary nextBtn" (click)="view7=true; view6=false">Next</button> -->
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" (click)="logInfo(); modal.close('Save click')"
+                    [disabled]="infoForm.invalid">Save</button>
+            </div> -->
+        </ng-template>
+    </form>
+
+
+
+
+
+
+    <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content); viewStart()">Ticket ID</button> -->
+
+    <hr>
+
+    <pre>{{closeResult}}</pre>
+
+
+
+
+
+</div>

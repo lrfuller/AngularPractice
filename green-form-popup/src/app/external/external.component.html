@@ -1,0 +1,437 @@
+<div class="container">
+    <br><br>
+    <div class="row">
+        <div class="col text-center">
+            <p>Hello {{user.username}} let’s create a ticket! Click the following "Form" button to get started</p>
+        </div>
+    </div>
+    
+
+    <form #infoForm="ngForm" novalidate>
+
+    <!-- Step 1 -->
+    <div class="stepBorder">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="modal-title">Request (Step 1 of 6)</h4>
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+        
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <label>Source <span class="required">*</span></label>
+                <select class="form-control" name="sourceHTML" #sourceHTML="ngModel" [(ngModel)]="user.source" required>
+                    <!-- <option>Choose an Option:</option> -->
+                    <option value="Phone">Phone</option>
+                    <option value="Email">Email</option>
+                    <option value="Fax">Fax</option>
+                    <option value="US Mail">US Mail</option>
+                    <option value="Sheriff">Sheriff</option>
+                    <option value="Others">Others</option>
+                </select>
+                <div *ngIf="sourceHTML.invalid && sourceHTML.touched" class="alert alert-danger">Source required</div>
+            </div>
+
+            <div class="col-md-6" *ngIf="sourceHTML.value==='Others'">
+                <label>Please Specify Others: <span class="required">*</span></label>
+                <input class="form-control" type="text" minlength="3" maxlength="50" pattern="^(?![\s])[a-zA-z,.'-]{3,50}$"
+                name="othersHTML" #othersHTML="ngModel" [(ngModel)]="user.other" required>
+                <div *ngIf="othersHTML.invalid && othersHTML.touched" class="alert alert-danger">Required for Others option</div>
+            </div>
+
+            <!-- <div *ngIf="sourceHTML.invalid">INVALID</div> -->
+            <div class="col-md-6">
+                <label>Select a Date:<span class="required">*</span></label>
+                <my-date-picker name="dateHTML" #dateHTML="ngModel" [options]="myDatePickerOptions" 
+                (dateChanged)="dateCheck(dateHTML.valid)" [placeholder]="datePlaceholder" [(ngModel)]="user.date"  required>
+            </my-date-picker>
+            
+            <div class="alert alert-danger" *ngIf="dateText">
+                Valid date required
+              </div>
+            </div>
+        </div>
+
+        
+
+    </div>
+    <br><br>
+    
+
+
+    <!-- Step 2 -->
+    <div class="stepBorder">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="modal-title">Contact Information (Step 2 of 6)</h4>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Are you a Resident of Virginia? <span class="required">*</span></label>
+                <select class="form-control" name="residentHTML" #residentHTML="ngModel" [(ngModel)]="user.resident"
+                    required>
+                    <!-- <option>Choose an Option:</option> -->
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                <div *ngIf="residentHTML.invalid && residentHTML.touched" class="alert alert-danger">Requestor's residency required</div>
+            </div>
+
+            <div class="col-md-6">
+                <label>What category best describes the requester? <span class="required">*</span></label>
+                <select class="form-control" name="categoryHTML" #categoryHTML="ngModel" [(ngModel)]="user.category"
+                    required>
+                    <!-- <option>Choose an Option:</option> -->
+                    <option value="Procurement Records">Procurement Records</option>
+                    <option value="My Records">My Records</option>
+                    <option value="Land Records">Land Records</option>
+                    <option value="General Requests">General Requests</option>
+                </select>
+                <div *ngIf="categoryHTML.invalid && categoryHTML.touched" class="alert alert-danger">Category required</div>
+            </div>
+        </div>
+
+
+        
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Requestor Information</h3>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>First Name: <span class="required">*</span></label>
+                <input class="form-control" type="text" minlength="3" maxlength="50" placeholder="First Name"
+                pattern="^(?![\s])[a-zA-ZäöüÄÖÜ.]{1,50}$" name="fNameHTML" #fNameHTML="ngModel" [(ngModel)]="user.firstName"
+                    required>
+                    <!-- <div *ngIf="fNameHTML.invalid && fNameHTML.touched" class="alert alert-danger">Requestor's first name is required</div> -->
+                    <div *ngIf="fNameHTML.errors && fNameHTML.invalid && fNameHTML.touched" class="alert alert-danger">
+                        <span *ngIf="fNameHTML.errors.required">First name is required. </span>
+                        <span *ngIf="fNameHTML.errors.pattern">No spaces or special characters except ".". </span>
+                        <span *ngIf="fNameHTML.errors.minlength">Must be at least 3 characters. </span>
+                        <span *ngIf="fNameHTML.errors.maxlength">Can't exceed 50 characters.</span>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <label>Middle Name:</label>
+                <input class="form-control" type="text" minlength="3" maxlength="50" placeholder="Middle Name"
+                pattern="^(?![\s])[a-zA-ZäöüÄÖÜ.]{1,50}$" name="mNameHTML" #mNameHTML="ngModel" [(ngModel)]="user.middleName">
+                <div *ngIf="mNameHTML.errors && mNameHTML.invalid && mNameHTML.touched" class="alert alert-danger">
+                    <span *ngIf="mNameHTML.errors.pattern">No spaces or special characters except ".". </span>
+                    <span *ngIf="mNameHTML.errors.minlength">Must be at least 3 characters. </span>
+                    <span *ngIf="mNameHTML.errors.maxlength">Can't exceed 50 characters.</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Last Name: <span class="required">*</span></label>
+                <input class="form-control" type="text" minlength="3" maxlength="50" placeholder="Last Name"
+                pattern="^(?![\s])[a-zA-ZäöüÄÖÜ.]{1,50}$" name="lNameHTML" #lNameHTML="ngModel" [(ngModel)]="user.lastName"
+                    required>
+                    <!-- <div *ngIf="lNameHTML.invalid && lNameHTML.touched" class="alert alert-danger">Requestor's last name is required</div> -->
+                    <div *ngIf="lNameHTML.errors && lNameHTML.invalid && lNameHTML.touched" class="alert alert-danger">
+                        <span *ngIf="lNameHTML.errors.required">Last name is required. </span>
+                        <span *ngIf="lNameHTML.errors.pattern">No spaces or special characters except ".". </span>
+                        <span *ngIf="lNameHTML.errors.minlength">Must be at least 3 characters. </span>
+                        <span *ngIf="lNameHTML.errors.maxlength">Can't exceed 50 characters.</span>
+                    </div>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>Phone Number: <span class="required">*</span></label>
+                <input class="form-control" placeholder="(111) 111-1111" type="text"
+                [specialCharacters]="[ '(' ,')' , '-', ' ' ]" mask="(000) 000-0000" name="phoneHTML"
+                #phoneHTML="ngModel" [(ngModel)]="user.phoneNumber" minlength="10" required />
+                <div *ngIf="phoneHTML.errors && phoneHTML.invalid && phoneHTML.touched" class="alert alert-danger">
+                    <span *ngIf="phoneHTML.errors.required">Requestor's phone number is required</span>
+                    <span *ngIf="phoneHTML.errors.minlength">Must be 10 digits</span>
+                    <!-- <span *ngIf="phoneHTML.errors.pattern"></span> -->
+                  </div>
+            </div>
+            <div class="col-md-4">
+                <label>Email: <span class="required">*</span></label>
+                <input class="form-control" placeholder="example@gmail.com" type="text" minlength="3" maxlength="50"
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="emailHTML" #emailHTML="ngModel"
+                    [(ngModel)]="user.email" required>
+                    <!-- <div *ngIf="emailHTML.invalid && emailHTML.touched" class="alert alert-danger">Requestor's email address is required</div> -->
+                    <div *ngIf="emailHTML.errors && emailHTML.invalid && emailHTML.touched" class="alert alert-danger">
+                        <span *ngIf="emailHTML.errors.required">Email required. </span>
+                        <span *ngIf="emailHTML.errors.pattern">Must follow a similar format: test@gmail.com</span>
+                        <span *ngIf="emailHTML.errors.minlength"></span>
+                        <span *ngIf="emailHTML.errors.maxlength"></span>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <label>Confirm Email: <span class="required">*</span></label>
+                <input class="form-control" placeholder="example@gmail.com" type="text"
+                    name="cEmailHTML" #cEmailHTML="ngModel" [(ngModel)]="user.confirmEmail" required>
+                    <div *ngIf="emailHTML.value!=cEmailHTML.value && cEmailHTML.touched" class="alert alert-danger">Emails must match</div>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Address Line 1: <span class="required">*</span></label>
+                <input class="form-control" type="text" placeholder="2125 Chesnut ST" minlength="3" maxlength="50"
+                pattern="^(?![\s])[a-zA-Z0-9äöüÄÖÜ. ]*$" name="address1HTML" #address1HTML="ngModel" [(ngModel)]="user.address1"
+                required>
+                <div *ngIf="address1HTML.errors && address1HTML.invalid && address1HTML.touched " class="alert alert-danger">
+                    <span *ngIf="address1HTML.errors.required">Address Line 1 is required. </span>
+                    <span *ngIf="address1HTML.errors.pattern">Can't start with a space. </span>
+                    <span *ngIf="address1HTML.errors.minlength">Address Line 1 is required. </span>
+                    <span *ngIf="address1HTML.errors.maxlength">Address Line 1 is required. </span>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <label>Address Line 2:</label>
+                <input class="form-control" type="text" placeholder="Apartment No." minlength="3" maxlength="50"
+                pattern="^(?![\s])[a-zA-Z0-9äöüÄÖÜ. ]*$" name="address2HTML" #address2HTML="ngModel"
+                [(ngModel)]="user.address2">
+                <div *ngIf="address2HTML.errors && address2HTML.invalid && address2HTML.touched " class="alert alert-danger">
+                    <!-- <span *ngIf="address2HTML.errors.required">Address Line 2 is required</span> -->
+                    <span *ngIf="address2HTML.errors.pattern">Can't start with a space. </span>
+                    <span *ngIf="address2HTML.errors.minlength">Must be 3 characters. </span>
+                    <!-- <span *ngIf="address2HTML.errors.maxlength">Mailing Address is required</span> -->
+                  </div>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-4">
+                <label>City: <span class="required">*</span></label>
+                <input class="form-control" type="text" minlength="3" maxlength="50" pattern="^(?![\s])[a-zA-Z]{1,50}$"
+                name="cityHTML" #cityHTML="ngModel" [(ngModel)]="user.city" placeholder="Richmond" required>
+                <div *ngIf="cityHTML.errors && cityHTML.invalid && cityHTML.touched" class="alert alert-danger">
+                    <span *ngIf="cityHTML.errors.required">City is required. </span>
+                      <span *ngIf="cityHTML.errors.minlength">City must be 3 characters. </span>
+                      <!-- <span *ngIf="cityHTML.errors.maxlength"> </span> -->
+                      <span *ngIf="cityHTML.errors.pattern">Can't start with a space, no numbers, or special characters.</span>
+                    </div>
+            </div>
+            <div class="col-md-4">
+                <label>State: <span class="required">*</span></label>
+                <select class="form-control" name="stateHTML" #stateHTML="ngModel" [(ngModel)]="user.state" required>
+                    <!-- <option >Choose an Option</option> -->
+                    <option value="AL">AL</option>
+                    <option value="AK">AK</option>
+                    <option value="AR">AR</option>
+                    <option value="AZ">AZ</option>
+                    <option value="CA">CA</option>
+                    <option value="CO">CO</option>
+                    <option value="CT">CT</option>
+                    <option value="DC">DC</option>
+                    <option value="DE">DE</option>
+                    <option value="FL">FL</option>
+                    <option value="GA">GA</option>
+                    <option value="HI">HI</option>
+                    <option value="IA">IA</option>
+                    <option value="ID">ID</option>
+                    <option value="IL">IL</option>
+                    <option value="IN">IN</option>
+                    <option value="KS">KS</option>
+                    <option value="KY">KY</option>
+                    <option value="LA">LA</option>
+                    <option value="MA">MA</option>
+                    <option value="MD">MD</option>
+                    <option value="ME">ME</option>
+                    <option value="MI">MI</option>
+                    <option value="MN">MN</option>
+                    <option value="MO">MO</option>
+                    <option value="MS">MS</option>
+                    <option value="MT">MT</option>
+                    <option value="NC">NC</option>
+                    <option value="NE">NE</option>
+                    <option value="NH">NH</option>
+                    <option value="NJ">NJ</option>
+                    <option value="NM">NM</option>
+                    <option value="NV">NV</option>
+                    <option value="NY">NY</option>
+                    <option value="ND">ND</option>
+                    <option value="OH">OH</option>
+                    <option value="OK">OK</option>
+                    <option value="OR">OR</option>
+                    <option value="PA">PA</option>
+                    <option value="RI">RI</option>
+                    <option value="SC">SC</option>
+                    <option value="SD">SD</option>
+                    <option value="TN">TN</option>
+                    <option value="TX">TX</option>
+                    <option value="UT">UT</option>
+                    <option value="VT">VT</option>
+                    <option value="VA">VA</option>
+                    <option value="WA">WA</option>
+                    <option value="WI">WI</option>
+                    <option value="WV">WV</option>
+                    <option value="WY">WY</option>
+                </select>
+                <div *ngIf="stateHTML.invalid && stateHTML.touched" class="alert alert-danger">State is required</div>
+            </div>
+            <div class="col-md-4">
+                <label>Zipcode: <span class="required">*</span></label>
+                <input class="form-control" type="text" minlength="5" maxlength="5" pattern="^-?(0|[1-9]\d*)?$"
+                    placeholder="00000" name="zipHTML" #zipHTML="ngModel" [(ngModel)]="user.zipCode" required>
+                    <!-- <div *ngIf="zipHTML.invalid && zipHTML.touched" class="alert alert-danger">Zip code is required</div> -->
+                    <div *ngIf="zipHTML.errors && zipHTML.invalid && zipHTML.touched" class="alert alert-danger">
+                        <span *ngIf="zipHTML.errors.required">Zip Code is required. </span>
+                        <span *ngIf="zipHTML.errors.minlength">Zip Code must be 5 digits. </span>
+                        <!-- <span *ngIf="zipHTML.errors.maxlength">Zip Code </span> -->
+                        <span *ngIf="zipHTML.errors.pattern">Must be a valid Zip Code.</span>
+                      </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br>
+
+
+
+    <!-- Step 3 -->
+    <div class="stepBorder">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="modal-title">Request Information (Step 3 of 6)</h4>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-6">
+                <label>Subject <span class="required">*</span></label>
+                <input type="text" class="form-control" placeholder="Subject" minlength="3" maxlength="50"
+                    pattern="^[a-zA-Z]{3,50}$" name="subjectHTML" #subjectHTML="ngModel" [(ngModel)]="user.subject"
+                    required>
+                    <div *ngIf="subjectHTML.invalid && subjectHTML.touched" class="alert alert-danger">Subject field required</div>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-12">
+                <label>Description <span class="required">*</span></label>
+                <tinymce name="description" name="descHTML" #descHTML="ngModel" [(ngModel)]="user.description"
+                [config]="config" [disabled]="edit" (ngModelChange)="checkDesc(descHTML.invalid)" required='required'></tinymce>Remaining {{5000 -len}}
+                    <div *ngIf="descText===true" class="alert alert-danger">Description field required</div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+    <!-- Step 4 -->
+    <div class="stepBorder">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="modal-title">Additional Information (Step 4 of 6)</h4>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>Info paragraphs here</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- <input type="file" class="form-control" > -->
+                <div class="input-group mb-3">
+                    <!-- <div class="input-group-prepend">
+<span class="input-group-text">Upload</span>
+</div> -->
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile01" name="fileHTML"
+                            #fileHTML="ngModel" [(ngModel)]="user.file" >
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+
+
+    <!-- Step 5 -->
+    <div class="stepBorder">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="modal-title">Fee (Step 5 of 6)</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>Fee paragraphs here</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <div class="text-right" style="padding-right:10px;">
+                    <input type="checkbox" value="true" name="feeHTML" #feeHTML="ngModel"
+                        [(ngModel)]="user.fee" required> I Agree <span class="required">*</span>
+                        <div *ngIf="feeHTML.invalid && feeHTML.touched" class="alert alert-danger">Agreement required</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="stepBorder">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="modal-title">Review and Submit (Step 6 of 6)</h4>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>Review paragraph</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <div class="text-right" style="padding-right:10px">
+                    <input type="checkbox" value="true" name="reviewHTML" #reviewHTML="ngModel"
+                        [(ngModel)]="user.review" required> I Agree <span class="required">*</span>
+                        <div *ngIf="reviewHTML.invalid && reviewHTML.touched" class="alert alert-danger">Agreement required</div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        
+        <div class="row buttonRow">
+            <div style="margin-left: auto">
+                <button type="button" class="btn btn-primary" (click)="logInfo()"
+                        [disabled]="infoForm.invalid">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</form>
+    <br><br>
+

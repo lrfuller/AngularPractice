@@ -12,6 +12,7 @@ import { StorageComponent } from './storage/storage.component';
 import { StickyComponent } from './sticky/sticky.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import { Tutorial3Component } from './tutorial3/tutorial3.component';
+import { PopupFormComponent } from './popup-form/popup-form.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,7 @@ const routes: Routes = [
   { path: 'sticky', component: StickyComponent},
   { path: 'barchart', component: BarchartComponent },
   { path: 'tutorial3', component: Tutorial3Component },
-
+  { path: 'popupform', component: PopupFormComponent},
 
 ];
 
@@ -38,4 +39,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [BasicFormComponent, BasicForm2Component, TestingFrontEndComponent, 
   ValidationComponent, Validation2Component, Validation3Component, UserInputTutorialComponent, DisplayingDataComponent,
-  StorageComponent, StickyComponent, BarchartComponent, Tutorial3Component]
+  StorageComponent, StickyComponent, BarchartComponent, Tutorial3Component, PopupFormComponent]

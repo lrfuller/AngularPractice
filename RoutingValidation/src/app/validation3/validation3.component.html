@@ -45,7 +45,7 @@ Validation 3 page:
           <!-- <input class="form-control" type="text" name="state" #state="ngModel" [(ngModel)]="user.state" required 
           pattern="^[a-zA-Z]{1,50}$" /> -->
           <select class="form-control" name="state" #state="ngModel" [(ngModel)]="user.state" required>
-            <option value="">Choose an Option</option>
+            <option [value]="c">Choose an Option</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
