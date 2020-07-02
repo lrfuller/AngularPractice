@@ -149,7 +149,7 @@
               <div *ngIf="sourceHTML.invalid && sourceHTML.touched" class="alert alert-danger">Source required</div>
             </div>
             <div class="col-md-6">
-              <label>Select a Date:<span class="required">*</span></label>
+              <label>Request Date:<span class="required">*</span></label>
               <my-date-picker name="dateHTML" #dateHTML="ngModel" [options]="myDatePickerOptions"
                 [(ngModel)]="user.date" (dateChanged)="dateCheck(dateHTML.valid)" [placeholder]="datePlaceholder"
                 required></my-date-picker>

@@ -1,0 +1,792 @@
+<div class="row">
+    <div class="col-6" style="border-right: 1px solid black">
+        <form enctype="multipart/form-data" #original="ngForm">
+            <br>
+            <h2>Contact Information</h2>
+            <hr>
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <label>Is the requestor a Virginia Resident? </label>
+                    <input class="form-control">
+                    <!-- <select class="form-control" name="residentHTML" #residentHTML="ngModel"
+                        [(ngModel)]="request.isStateResident" disabled>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select> -->
+                </div>
+
+                <div class="custom-col-6">
+                    <label>What category best describes the requestor? </label>
+                    <select class="form-control" required>
+                        <option value="" selected>Choose an Option:</option>
+                    </select>
+                    <!-- <select class="form-control" name="categoryHTML" #categoryHTML="ngModel"
+                            [(ngModel)]="request.reqCatogery.reqCatogeryId" disabled>
+                            <option value="" selected>Choose an Option:</option>
+                            <option *ngFor="let category of categories" value="{{ category.reqCatogeryId }}">
+                                {{category.catogeryName}}</option>
+                        </select> -->
+                </div>
+            </div>
+
+
+            <br>
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <h3>Requestor Information</h3>
+                </div>
+            </div>
+
+            <div class="row rowPadding">
+                <div class="custom-col-4">
+                    <label>First Name </label>
+                    <input class="form-control">
+                </div>
+                <div class="custom-col-4">
+                    <label>Middle Name</label>
+                    <input class="form-control" >
+                </div>
+                <div class="custom-col-4">
+                    <label>Last Name <span class="required">*</span></label>
+                    <input class="form-control">
+                </div>
+            </div>
+            <br>
+
+
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input class="form-control" />
+
+                    <!-- vineeth's version: -->
+                    <!-- <input type="text" id="tel" [phoneMask]="request.requestorsPhone" name="phoneHTML"
+                                [(ngModel)]="request.requestorsPhone" class="form-control" placeholder="(111) 111-1111"
+                                 minlength="14" maxlength="14"> -->
+                    <!-- <div *ngIf="phoneHTML.errors && phoneHTML.invalid && phoneHTML.touched"
+                                class="alert alert-danger">
+                                <span *ngIf="phoneHTML.errors.required">Requestor's phone number is required</span>
+                                <span *ngIf="phoneHTML.errors.minlength">Must be 10 digits</span>
+                            </div> -->
+
+                </div>
+                <div class="custom-col-6">
+                    <label>Email <span class="required">*</span></label>
+                    <input class="form-control" >
+                </div>
+            </div>
+            <br>
+
+
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <label>Address Line 1 <span class="required">*</span></label>
+                    <input class="form-control" >
+                </div>
+                <div class="custom-col-6">
+                    <label>Address Line 2</label>
+                    <input class="form-control">
+                </div>
+            </div>
+            <br>
+
+            <div class="row rowPadding">
+                <div class="custom-col-4">
+                    <label>City <span class="required">*</span></label>
+                    <input class="form-control">
+                </div>
+                <div class="custom-col-4">
+                    <label>State <span class="required">*</span></label>
+                    <select class="form-control" 
+                        disabled>
+                        <!-- <option >Choose an Option</option> -->
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AR">AR</option>
+                        <option value="AZ">AZ</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DC">DC</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="IA">IA</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="MA">MA</option>
+                        <option value="MD">MD</option>
+                        <option value="ME">ME</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MO">MO</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="NC">NC</option>
+                        <option value="NE">NE</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NV">NV</option>
+                        <option value="NY">NY</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WI">WI</option>
+                        <option value="WV">WV</option>
+                        <option value="WY">WY</option>
+                    </select>
+                    
+                </div>
+                <div class="custom-col-4">
+                    <label>Zipcode <span class="required">*</span></label>
+                    <input class="form-control" >
+                </div>
+            </div>
+
+            <br>
+
+
+
+            <h2>Request</h2>
+
+
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <label>Subject <span class="required">*</span></label>
+                    <select class="form-control" disabled>
+                        <option>Choose...</option>
+                        <option>Procurement</option>
+                        <option>Eligibility</option>
+                        <option>Contracts</option>
+                        <option>CCC Plus</option>
+                        <option>Medallion 4.0</option>
+                        <option>ARTS</option>
+                        <option>LTSS</option>
+                        <option>Provider Related</option>
+                        <option>Medicaid Expansion</option>
+                        <option>Budget and Expenditure</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Description<span class="required">*</span></label>
+                    <tinymce name="Description"[disabled]="disabled"  [config]="config">
+                    </tinymce>
+                    <!-- <textarea class="form-control" type="text" name="desc" #desc="ngModel"
+                        [(ngModel)]="description"></textarea> -->
+                </div>
+            </div>
+
+            <br>
+
+            <h2>Additional Information</h2>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="info" align="justify">
+                        <!-- If you are seeking records about yourself you can upload
+                        <a href="#">Certification of Identity form</a>
+                        along with a legible copy of your proof of identity. Proof of identity can be a legible
+                        copy of your
+                        current driver’s license, Medicaid card, or government issued identification card.
+                        If you are seeking records of an enrollee or provider, additional documentation is
+                        required. You can
+                        upload <a href="#">DMAS General Consent for Release form</a>. Please also use this tool
+                        if there are
+                        additional documents that support your request such as power of attorney authorizations,
+                        court orders,
+                        custody agreements etc. -->
+                        If requestor is seeking records of an enrollee or provider, additional documentation is
+                        required. The
+                        requestor should provide DMAS General Consent for Release form. Please also use this screen to
+                        upload
+                        more documents as provided by requestor such as power of attorney authorizations, court orders,
+                        custody agreements etc.
+                    </p>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <div id="medicaidTextbox">
+                        <h6 class="textBanner" align="justify">
+                            <i class="fa fa-info-circle" id="infoIcon" aria-hidden="true"></i>
+                            <b>If you prefer to mail or fax your documentation,
+                                you may address it to the FOIA Coordinator at 600 East Broad Street, Suite 1300,
+                                Richmond, VA
+                                23219
+                                or by
+                                fax to <a href="tel:8043714981">804-371-4981</a>
+                            </b>
+                        </h6>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="custom-col-6">
+                    <!-- <input type="file" class="form-control" > -->
+                    <div class="input-group" style="padding-left: 10px;">
+                        <!-- <div class="input-group-prepend">
+                                <span class="input-group-text">Upload</span>
+                              </div> -->
+
+                        <!-- 
+                                TODO, add attachments section
+                               -->
+
+                        <!-- <p><strong>NOTE: Please find the documents from the requestor in the attachment
+                                        section</strong></p> -->
+
+
+                        <!-- <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="inputGroupFile01" name="fileHTML" #fileHTML="ngModel"
+                                [(ngModel)]="user.file" (change)="displayFile($event.target.files)">
+                              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                              
+                            </div>-->
+                        <table class="policyTable" border="1">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Document Name</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr *ngFor="let data of request.documentsDTO">
+                                    <td><a style="cursor: pointer;color: blue;"
+                                            (click)="getFile(data.documentId)">{{data.fileName}}</a></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <br>
+                <h2>Fee</h2>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <p id="info" align="justify">Medicaid recipients are not charged for copies of their own
+                            claims history
+                            records. Other requesting
+                            individuals (such as, but not limited to, attorneys) will be asked to pay for the
+                            records requested from
+                            the Department of Medical Assistance Services. FOIA allows DMAS to charge for the actual
+                            costs of
+                            responding to FOIA requests. This includes items such as staff time spent searching for
+                            the requested
+                            records, copying costs, or any other costs directly related to supplying the requested
+                            records.
+                            You may request that DMAS provide a cost estimate prior to supplying the records
+                            requested. This will
+                            allow you the opportunity to modify your request in an attempt to lower the estimated
+                            costs if
+                            necessary.
+                            If it is estimated that it will cost more than $200 to respond to your request, you will
+                            be notified in
+                            writing. You must agree to pay the actual charges. Effective 7/1/08, it is required you
+                            to pay a
+                            deposit,
+                            not to exceed the amount of the estimate, before DMAS will proceed with your request.
+                            The five days that
+                            we have to respond to Commonwealth citizens' requests does not include the time between
+                            being asked for
+                            a
+                            deposit and your response.
+                            If you owe DMAS money from a previous FOIA request that has remained unpaid for more
+                            than 30 days, the
+                            Department of Medical Assistance Services requires payment of the past-due bill before
+                            it will respond
+                            to
+                            your new FOIA request.
+                            DMAS only has the ability to receive payment through (personal, business, cashier’s or
+                            certified)
+                            checks
+                            or Money Order made payable to DMAS, Attn: FOIA Coordinator. We cannot take online
+                            payments or credit
+                            cards at this time.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="custom-control custom-checkbox" style="margin-left: auto; padding-right: 15px;">
+                        <input type="checkbox" [(ngModel)]="request.reviewAndSubmit" name="fee" class="custom-control-input">
+                        <label class="custom-control-label" for="same-address">Requestor agrees to the above
+                            terms</label>
+                    </div>
+                </div>
+        
+                <br>
+                <br>
+                <h2>Submit</h2>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <p id="info" align="justify">Please review the information you entered above before
+                            submitting to DMAS.
+                            Once you submit, DMAS will
+                            contact you regarding any potential fees and/or to discuss your request with you to
+                            ensure that we
+                            understand what records you are seeking.
+                        </p>
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="custom-control custom-checkbox" style="margin-left: auto; padding-right: 15px;">
+                        <input type="checkbox" [(ngModel)]="request.reviewAndSubmit" name="review" class="custom-control-input">
+                        <label class="custom-control-label" for="save-info">Requestor agrees to the above
+                            terms</label>
+                    </div>
+                </div> -->
+
+            <br><br>
+
+
+
+
+
+
+
+        </form>
+
+    </div>
+    <div class="col-6" style="border-left: 1px solid black">
+        <form  #editFoia="ngForm">
+            <br>
+            <h2>Contact Information</h2>
+            <hr>
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <label>Is the requestor a Virginia Resident? <span class="required">*</span></label>
+                    <select class="form-control"required>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+
+                </div>
+
+                <div class="custom-col-6">
+                    <label>What category best describes the requestor? <span class="required">*</span></label>
+                    <select class="form-control" required>
+                        <option value="" selected>Choose an Option:</option>
+
+
+                    </select>
+
+                    
+                    <!-- <select class="form-control" name="categoryHTML" #categoryHTML="ngModel"
+                            [ngModel]="request.reqCatogery?.catogeryName">
+                            <option *ngFor="let category of categories" value="{{ category.reqCatogeryId }}">{{category.catogeryName}}</option>
+                        </select> -->
+                </div>
+            </div>
+
+
+            <br>
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <h3>Requestor Information</h3>
+                </div>
+            </div>
+
+            <div class="row rowPadding">
+                <div class="custom-col-4">
+                    <label>First Name <span class="required">*</span></label>
+                    <input class="form-control"  required>
+                    <!-- <div *ngIf="fNameHTML.invalid && fNameHTML.touched" class="alert alert-danger">Requestor's first name is required</div> -->
+                </div>
+                <div class="custom-col-4">
+                    <label>Middle Name</label>
+                    <input class="form-control" type="text" minlength="3" maxlength="50" placeholder="Middle Name"
+                        pattern="^(?![\s])[a-zA-ZäöüÄÖÜ.]{1,50}$">
+
+                </div>
+                <div class="custom-col-4">
+                    <label>Last Name <span class="required">*</span></label>
+                    <input class="form-control" type="text" minlength="3" maxlength="50" placeholder="Last Name"
+                        pattern="^(?![\s])[a-zA-ZäöüÄÖÜ.]{1,50}$" required>
+
+                </div>
+            </div>
+            <br>
+
+
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <label>Phone Number <span class="required">*</span></label>
+                    <input class="form-control">
+
+                    <!-- vineeth's version: -->
+                    <!-- <input type="text" id="tel" [phoneMask]="request.requestorsPhone" name="phoneHTML"
+                            [(ngModel)]="request.requestorsPhone" class="form-control" placeholder="(111) 111-1111"
+                             minlength="14" maxlength="14"> -->
+                    <!-- <div *ngIf="phoneHTML.errors && phoneHTML.invalid && phoneHTML.touched"
+                            class="alert alert-danger">
+                            <span *ngIf="phoneHTML.errors.required">Requestor's phone number is required</span>
+                            <span *ngIf="phoneHTML.errors.minlength">Must be 10 digits</span>
+                        </div> -->
+
+                </div>
+                <div class="custom-col-6">
+                    <label>Email <span class="required">*</span></label>
+                    <input class="form-control" placeholder="example@gmail.com" type="text" minlength="3" maxlength="50"
+                        pattern="^[a-zA-Z0-9._%'+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required>
+
+                </div>
+            </div>
+            <br>
+
+
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <label>Address Line 1 <span class="required">*</span></label>
+                    <input class="form-control" type="text" placeholder="2125 Chesnut ST" minlength="3" maxlength="50"
+                        pattern="^[^\s]+(\s+[^\s]+)*$" required>
+
+                </div>
+                <div class="custom-col-6">
+                    <label>Address Line 2</label>
+                    <input class="form-control" type="text" placeholder="Apartment No." minlength="3" maxlength="50"
+                        pattern="^[^\s]+(\s+[^\s]+)*$">
+
+                </div>
+            </div>
+            <br>
+
+            <div class="row rowPadding">
+                <div class="custom-col-4">
+                    <label>City <span class="required">*</span></label>
+                    <input class="form-control" type="text" minlength="3" maxlength="50"
+                        pattern="^(?![\s])[a-zA-Z]{1,50}$" placeholder="Richmond" required>
+                </div>
+                <div class="custom-col-4">
+                    <label>State <span class="required">*</span></label>
+                    <select class="form-control"
+                        required>
+                        <!-- <option >Choose an Option</option> -->
+                        <option value="AL">AL</option>
+                        <option value="AK">AK</option>
+                        <option value="AR">AR</option>
+                        <option value="AZ">AZ</option>
+                        <option value="CA">CA</option>
+                        <option value="CO">CO</option>
+                        <option value="CT">CT</option>
+                        <option value="DC">DC</option>
+                        <option value="DE">DE</option>
+                        <option value="FL">FL</option>
+                        <option value="GA">GA</option>
+                        <option value="HI">HI</option>
+                        <option value="IA">IA</option>
+                        <option value="ID">ID</option>
+                        <option value="IL">IL</option>
+                        <option value="IN">IN</option>
+                        <option value="KS">KS</option>
+                        <option value="KY">KY</option>
+                        <option value="LA">LA</option>
+                        <option value="MA">MA</option>
+                        <option value="MD">MD</option>
+                        <option value="ME">ME</option>
+                        <option value="MI">MI</option>
+                        <option value="MN">MN</option>
+                        <option value="MO">MO</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="NC">NC</option>
+                        <option value="NE">NE</option>
+                        <option value="NH">NH</option>
+                        <option value="NJ">NJ</option>
+                        <option value="NM">NM</option>
+                        <option value="NV">NV</option>
+                        <option value="NY">NY</option>
+                        <option value="ND">ND</option>
+                        <option value="OH">OH</option>
+                        <option value="OK">OK</option>
+                        <option value="OR">OR</option>
+                        <option value="PA">PA</option>
+                        <option value="RI">RI</option>
+                        <option value="SC">SC</option>
+                        <option value="SD">SD</option>
+                        <option value="TN">TN</option>
+                        <option value="TX">TX</option>
+                        <option value="UT">UT</option>
+                        <option value="VT">VT</option>
+                        <option value="VA">VA</option>
+                        <option value="WA">WA</option>
+                        <option value="WI">WI</option>
+                        <option value="WV">WV</option>
+                        <option value="WY">WY</option>
+                    </select>
+                </div>
+                <div class="custom-col-4">
+                    <label>Zipcode <span class="required">*</span></label>
+                    <input class="form-control" type="text" minlength="5" maxlength="5" pattern="^-?(0|[1-9]\d*)?$"
+                        placeholder="00000" required>
+                </div>
+            </div>
+
+            <br>
+            <!-- <hr style="margin-top:0; margin-bottom:0"> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <h2>Request</h2>
+
+
+            <div class="row rowPadding">
+                <div class="custom-col-6">
+                    <label>Subject <span class="required">*</span></label>
+                    <select class="form-control">
+                        <option>Choose...</option>
+                        <option>Procurement</option>
+                        <option>Eligibility</option>
+                        <option>Contracts</option>
+                        <option>CCC Plus</option>
+                        <option>Medallion 4.0</option>
+                        <option>ARTS</option>
+                        <option>LTSS</option>
+                        <option>Provider Related</option>
+                        <option>Medicaid Expansion</option>
+                        <option>Budget and Expenditure</option>
+                    </select>
+                    <!-- <input type="text" class="form-control" placeholder="Subject" minlength="3" maxlength="50"
+                            pattern="^[a-zA-Z]{3,50}$" id="inputEmail4" required> -->
+
+
+                    <!-- <select class="form-control" name="subjectHTML" #subjectHTML="ngModel" [(ngModel)]="request.reqSubject.subject">
+                                <option value="" selected>Choose...</option>
+                                <option *ngFor="let req of request" value="{{ req.subject.reqSubjectId }}">
+                                  {{req.subject.subject}}
+                                </option>
+                              </select> -->
+                    <!-- <div *ngIf="subjectHTML.invalid && subjectHTML.touched" class="alert alert-danger">Subject
+                            required</div> -->
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Description<span class="required">*</span></label>
+                    <tinymce name="Description"  [config]="config">
+                    </tinymce>
+                    <!-- <tinymce name="descHTML" #descHTML="ngModel" [(ngModel)]="user.description"
+                            [config]="config" [disabled]="edit" (ngModelChange)="checkDesc(descHTML.invalid)"
+                            required='required'>
+                        </tinymce>Remaining {{5000 -len}}
+                    <div *ngIf="descText===true" class="alert alert-danger">Description field required</div> -->
+                </div>
+            </div>
+
+
+            <!-- <hr> -->
+            <br>
+
+            <h2>Additional Information</h2>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="info" align="justify">
+                        <!-- If you are seeking records about yourself you can upload
+                        <a href="#">Certification of Identity form</a>
+                        along with a legible copy of your proof of identity. Proof of identity can be a legible
+                        copy of your
+                        current driver’s license, Medicaid card, or government issued identification card.
+                        If you are seeking records of an enrollee or provider, additional documentation is
+                        required. You can
+                        upload <a href="#">DMAS General Consent for Release form</a>. Please also use this tool
+                        if there are
+                        additional documents that support your request such as power of attorney authorizations,
+                        court orders,
+                        custody agreements etc. -->
+
+                        If requestor is seeking records of an enrollee or provider, additional documentation is
+                        required. The
+                        requestor should provide DMAS General Consent for Release form. Please also use this screen to
+                        upload
+                        more documents as provided by requestor such as power of attorney authorizations, court orders,
+                        custody agreements etc.
+                    </p>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <div id="medicaidTextbox">
+                        <h6 class="textBanner" align="justify">
+                            <i class="fa fa-info-circle" id="infoIcon" aria-hidden="true"></i>
+                            <b>If you prefer to mail or fax your documentation,
+                                you may address it to the FOIA Coordinator at 600 East Broad Street, Suite 1300,
+                                Richmond, VA
+                                23219
+                                or by
+                                fax to <a href="tel:8043714981">804-371-4981</a>
+                            </b>
+                        </h6>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="custom-col-6">
+                    <!-- <input type="file" class="form-control" > -->
+                    <div class="input-group" style="padding-left: 10px;">
+                        <!-- <div class="input-group-prepend">
+                            <span class="input-group-text">Upload</span>
+                          </div> -->
+
+                        <!-- 
+                            TODO, add attachments section
+                           -->
+
+                        <!-- <p><strong>NOTE: Please find the documents from the requestor in the attachment
+                                    section</strong></p> -->
+
+
+                        <!-- <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="inputGroupFile01" name="fileHTML" #fileHTML="ngModel"
+                            [(ngModel)]="user.file" (change)="displayFile($event.target.files)">
+                          <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                          
+                        </div> -->
+                        <table class="policyTable" border="1">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Document Name</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <br>
+            <h2>Fee</h2>
+    
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="info" align="justify">Medicaid recipients are not charged for copies of their own
+                        claims history
+                        records. Other requesting
+                        individuals (such as, but not limited to, attorneys) will be asked to pay for the
+                        records requested from
+                        the Department of Medical Assistance Services. FOIA allows DMAS to charge for the actual
+                        costs of
+                        responding to FOIA requests. This includes items such as staff time spent searching for
+                        the requested
+                        records, copying costs, or any other costs directly related to supplying the requested
+                        records.
+                        You may request that DMAS provide a cost estimate prior to supplying the records
+                        requested. This will
+                        allow you the opportunity to modify your request in an attempt to lower the estimated
+                        costs if
+                        necessary.
+                        If it is estimated that it will cost more than $200 to respond to your request, you will
+                        be notified in
+                        writing. You must agree to pay the actual charges. Effective 7/1/08, it is required you
+                        to pay a
+                        deposit,
+                        not to exceed the amount of the estimate, before DMAS will proceed with your request.
+                        The five days that
+                        we have to respond to Commonwealth citizens' requests does not include the time between
+                        being asked for
+                        a
+                        deposit and your response.
+                        If you owe DMAS money from a previous FOIA request that has remained unpaid for more
+                        than 30 days, the
+                        Department of Medical Assistance Services requires payment of the past-due bill before
+                        it will respond
+                        to
+                        your new FOIA request.
+                        DMAS only has the ability to receive payment through (personal, business, cashier’s or
+                        certified)
+                        checks
+                        or Money Order made payable to DMAS, Attn: FOIA Coordinator. We cannot take online
+                        payments or credit
+                        cards at this time.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="custom-control custom-checkbox" style="margin-left: auto; padding-right: 15px;">
+                    <input type="checkbox" [(ngModel)]="request.reviewAndSubmit" name="fee" class="custom-control-input">
+                    <label class="custom-control-label" for="same-address">Requestor agrees to the above
+                        terms</label>
+                </div>
+            </div>
+    
+            <br>
+            <br>
+            <h2>Submit</h2>
+    
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="info" align="justify">Please review the information you entered above before
+                        submitting to DMAS.
+                        Once you submit, DMAS will
+                        contact you regarding any potential fees and/or to discuss your request with you to
+                        ensure that we
+                        understand what records you are seeking.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="custom-control custom-checkbox" style="margin-left: auto; padding-right: 15px;">
+                    <input type="checkbox" [(ngModel)]="request.reviewAndSubmit" name="review" class="custom-control-input">
+                    <label class="custom-control-label" for="save-info">Requestor agrees to the above
+                        terms</label>
+                </div>
+            </div>
+     -->
+
+
+
+
+
+
+
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+

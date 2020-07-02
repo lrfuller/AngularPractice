@@ -9,9 +9,9 @@ import { FormsModule } from '@angular/forms';
 //things installed:
 import { MyDatePickerModule } from 'mydatepicker';
 import { NgxMaskModule } from 'ngx-mask';
+import { NgxTinymceModule } from 'ngx-tinymce';
 
 
-// import { NgxWebstorageModule } from 'ngx-webstorage';
 
 
 @NgModule({
@@ -26,7 +26,9 @@ import { NgxMaskModule } from 'ngx-mask';
     NgxMaskModule.forRoot(),
     MyDatePickerModule,
     ChartsModule,
-    // NgxWebstorageModule,
+    NgxTinymceModule.forRoot({
+      baseURL: './assets/tinymce/'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

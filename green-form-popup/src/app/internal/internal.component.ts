@@ -58,7 +58,7 @@ export class InternalComponent {
   //input fields valid
   
 
-  private datePlaceholder: string = "01/02/2019     (day/month/year)";
+  private datePlaceholder: string = "MM/DD/CCYY";
 
   // private formTest: FormControl = new FormControl(this.validTest);
 
@@ -148,7 +148,7 @@ public model: any = { date: { year: 2018, month: 10, day: 9 } };
 
   testingUser(){
     this.user.resident = "Yes";
-    this.user.category = "Procurement Records";
+    this.user.category = "Land Records";
     this.user.firstName = "John";
     this.user.lastName = "Baker";
     this.user.phoneNumber = 8040000000;

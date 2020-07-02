@@ -6,7 +6,8 @@
   }
 
   .newPopup2 .modal-dialog{
-    max-width: 50%;
+    /* max-width: 50%; */
+    max-width: 70%;
     /* top:10%; */
   }
   .newPopup3 .modal-dialog{

@@ -52,5 +52,7 @@ export class UserInfo{
     public assessmentCategory: string;
     public closedTicketComment: string;
 
+    public emailPopup: string;
+
     
 }

@@ -15,7 +15,7 @@ export class UnderProcessingComponent{
 
   public user: UserInfo;
   public tableA: assignment;
-  // tableA: Array<assignment>;
+  // tableObject: Array<assignment>;
 
 
   public descText: boolean = false;
@@ -59,7 +59,7 @@ export class UnderProcessingComponent{
   // public phoneLen = 0;
   // public emailLen = 0;
   
-  public tickets: ["Division 1", "Billy Johnson", "medium", "Comment 1 test", "09/01/2020", "02/21/2020", "Closed", "$1.01"];
+  // public tickets: ["Division 1", "Billy Johnson", "medium", "Comment 1 test", "09/01/2020", "02/21/2020", "Closed", "$1.01"];
 
   config: any = {
     height: 250,
@@ -76,7 +76,7 @@ export class UnderProcessingComponent{
   constructor(private modalService: NgbModal, private ref: ChangeDetectorRef) { 
     this.user = new UserInfo();
     this.tableA = new assignment();
-    // this.tableA = new Array<assignment>();
+    // this.tableObject = new Array<assignment>();
 
     this.testingUser();
     // this.dateString = JSON.stringify(this.user.date)
@@ -138,7 +138,7 @@ export class UnderProcessingComponent{
     }
   }
 
-  private datePlaceholder: string = "01/02/2019     (day/month/year)";
+  private datePlaceholder: string = "MM/DD/CCYY";
 
 //   public myDatePickerOptionsDisablePastToday: IMyDpOptions = {
 //     dateFormat: 'mm/dd/yyyy',
@@ -154,7 +154,7 @@ public model: any = { date: { year: 2018, month: 10, day: 9 } };
 
   testingUser(){
     this.user.resident = "Yes";
-    this.user.category = "Procurement Records";
+    this.user.category = "Land Records";
     this.user.firstName = "John";
     this.user.lastName = "Baker";
     this.user.phoneNumber = 8040000000;
@@ -229,14 +229,14 @@ public model: any = { date: { year: 2018, month: 10, day: 9 } };
   }
 
   // testTicket(){
-  //   this.tableA[0].division = "Division 1";
-  //   this.tableA[0].assignedTo = "Billy Johnson";
-  //   this.tableA[0].priority = "medium";
-  //   this.tableA[0].comment = "Comment 1 by Billy";
-  //   this.tableA[0].expectedClosedDate = {date: {year: 2020, month: 1, day: 9}};
-  //   this.tableA[0].responseDate = {date: {year: 2020, month: 2, day: 21}};
-  //   this.tableA[0].status = "Closed";
-  //   this.tableA[0].estimation = "$1.01";
+  //   this.tableObject[0].division = "Division 1";
+  //   this.tableObject[0].assignedTo = "Billy Johnson";
+  //   this.tableObject[0].priority = "medium";
+  //   this.tableObject[0].comment = "Comment 1 by Billy";
+  //   this.tableObject[0].expectedClosedDate = {date: {year: 2020, month: 1, day: 9}};
+  //   this.tableObject[0].responseDate = {date: {year: 2020, month: 2, day: 21}};
+  //   this.tableObject[0].status = "Closed";
+  //   this.tableObject[0].estimation = "$1.01";
   // }
 
 }
