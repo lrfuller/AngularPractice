@@ -1,0 +1,95 @@
+    <!-- first graph -->
+    
+    <div class="form-row boxShadow">
+      <div class="col-md-8" style="font-weight: bold;">
+        Top Ten Agency Requests (by Requester Type)
+      </div>
+      <br /><br />
+      <div style="display: block; width: 100%; height: 16rem;">
+        <canvas
+          baseChart
+          [data]="lineChartDataSystems"
+          [labels]="lineChartLabelsSystems"
+          chartType="bar"
+          [legend]="false"
+          [options]="chartOption1"
+          [colors]="chartColorsSystems"
+        ></canvas>
+        <!-- <canvas
+          baseChart
+          [datasets]="lineChartDataSystems"
+          [labels]="lineChartLabelsSystems"
+          chartType="bar"
+          [legend]="false"
+          (chartHover)="chartHovered21($event)"
+          [options]="chartOption1"
+          [colors]="chartColorsSystems"
+        ></canvas> -->
+      </div>
+    </div>
+    <br />
+    <br />
+
+  <div style="position: absolute; left: 203.2px">
+    <div class="form-row boxShadow">
+      <div class="col-md-6" style="font-weight: bold;">
+        <div class="row">
+          <div class="col-md-6" style="font-weight: bold; line-height: 34px !important; min-width: 339.81px!important;">
+            Overall Tickets
+          </div>
+          <div class=" justify-content-end" style="margin-left: auto;">
+            <label>Request Type</label>
+            <select
+              class="form-control"
+              (change)="getOverallData($event.target.value)"
+              style="display: inline !important; width: 141px; margin-left: 6px; margin-right: 10px;"
+            >
+              <option value="all" selected>All</option>
+              <option value="foia">FOIA</option>
+              <option value="data">Data Request</option>
+            </select>
+          </div>
+        </div>
+        <div style="display: block; width: 100%; height: 16rem;">
+          <canvas
+            baseChart
+            [data]="pieChartBreakDown"
+            [labels]="pieChartLabelsWage1"
+            chartType="doughnut"
+            [options]="pieChartOptionsWage1"
+            [colors]="pieChartColorWage1"
+          ></canvas>
+        </div>
+      </div>
+   
+      <div class="col-md-6" style="font-weight: bold;">
+        <div class="row">
+          <div style="font-weight: bold; line-height: 34px !important; margin-left:15px">
+            Overall Tickets (VA vs non-VA Residents)
+          </div>
+          <div class="justify-content-end" style="margin-left: auto; margin-right: 5%;">
+            <label>Request Type</label>
+            <select
+              class="form-control"
+              (change)="getOverallDataType($event.target.value)"
+              style="display: inline !important; width: 141px; margin-left: 6px;"
+            >
+              <option value="all" selected>All</option>
+              <option value="foia">FOIA</option>
+              <option value="data">Data Request</option>
+            </select>
+          </div>
+        </div>
+        <div style="display: block; width: 100%; height: 16rem;">
+          <canvas
+            baseChart
+            [data]="pieChartDataWage"
+            [labels]="pieChartLabelsWage"
+            chartType="doughnut"
+            [options]="pieChartOptionsWage"
+            [colors]="pieChartColorWage"
+          ></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
