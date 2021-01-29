@@ -1,0 +1,16 @@
+<div class="row" style="padding-left:100px; padding-top:50px">
+    <div class="col-4">
+        <label>Time1: </label>
+        <input type="time" class="form-control" (change)="timeChange1($event.target.value)"
+        name="time1" #time1="ngModel" [(ngModel)]="timeV1" >
+    </div>
+</div>
+
+<div class="row" style="padding-left:100px; padding-top:50px">
+    <div class="col-4">
+        <label>Time2: </label>
+        <input type="time" class="form-control" (change)="timeChange2($event.target.value)"
+        name="time2" #time2="ngModel" [(ngModel)]="timeV2" max="13:06">
+        <!-- {{timeV2}} -->
+    </div>
+</div>
