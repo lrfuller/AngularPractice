@@ -1,0 +1,81 @@
+<h1 appHighlight>Directives</h1>
+<input [(ngModel)]="num" type="text">
+<h3 class="appHighlight">ngIf</h3>
+<div *ngIf="num!=undefined && num%2==0">
+    Even Number
+</div>
+<div *ngIf="num!=undefined && num%2>0">
+    Odd Number
+</div>
+
+<h3>ngIf..else</h3>
+<div *ngIf="num!=undefined && num%2==0 then temp1; else temp2"></div>
+
+<ng-template #temp1>Even Number</ng-template>
+<ng-template #temp2>Odd Number</ng-template>
+
+<br>
+<h3>ngSwitch</h3>
+<input type="text" [(ngModel)]="alphabet"/>
+<div [ngSwitch]="alphabet">
+    <div *ngSwitchCase="'a'">Vowel</div>
+    <div *ngSwitchCase="'e'">Vowel</div>
+    <div *ngSwitchCase="'i'">Vowel</div>
+    <div *ngSwitchCase="'o'">Vowel</div>
+    <div *ngSwitchCase="'u'">Vowel</div>
+    <div *ngSwitchDefault>Not Vowel</div>
+</div>
+
+<br>
+<h3>ngFor</h3>
+<ul>
+    <li *ngFor="let item of colors">{{item}}</li>
+</ul>
+
+
+
+<br><br><br>
+<h1>Attribute Directives</h1>
+<style>
+    .red{
+        color:red;
+        font-size:20px;
+    }
+    .blue{
+        color:blue;
+        font-size:20px;
+    }
+</style>
+<div>
+    <select [(ngModel)]="color">
+        <option value="white" selected="true">Select</option>
+        <option *ngFor="let item of colors">{{item}}</option>
+    </select>
+</div>
+<h3>ngStyle</h3>
+<div [ngStyle]="{'background-color': color}">My Div Bg Color</div>
+<h3>ngClass</h3>
+<div [ngClass]="{'red': color=='red'}">My Div Font Color</div>
+
+<br><br><br><br>
+<h1>Custom Directives</h1>
+
+
+
+
+
+
+
+
+<br><br><br><br><br>
+<br><br><br><br><br>
+<br><br><br><br><br>
+<h1>Testing NgFor</h1>
+<ul>
+    <li *ngFor="let arr of array1">{{arr}}</li>
+</ul>
+<br>
+
+<h3>Testing ArrayObj</h3>
+{{arrayObj | json}}
+<br><br><br><br><br>
