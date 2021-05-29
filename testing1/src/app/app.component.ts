@@ -7,7 +7,14 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  
+  constructor(){
+    
+  }
   ngOnInit() {
+    
+    
   }
   title = 'testing1';
   @Input() timeV1;

@@ -9,7 +9,10 @@ import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  //login removed from routing automatically since the requirements for it
+  // were purely to get it styled correctly, not functional. Could change later
+  // { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'general', component: GeneralComponent},
   { path: 'home', component: HomeComponent},
