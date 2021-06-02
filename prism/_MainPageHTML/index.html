@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Prism</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+    <!-- Bootstrap CSS: -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap JS: -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <!-- Font Awesome icons: -->
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- <link href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <!-- Google languages script: -->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <script type="text/javascript" src="assets/js/script.js"></script>
+
+
+</head>
+
+<body>
+
+
+
+
+
+    <nav class="navbar navbar-expand-mdmb-4 prismHeader stickyHeader">
+        <!-- <div class="col text-left leftHeading">
+            <i class="whiteIcons fa fa-home mr-3 fa-3x" (click)="homeClick()" aria-hidden="true" ></i>
+            <i class="fa fa-arrow-left fa-3x" aria-hidden="true"></i>
+        </div> -->
+        <!-- <div class="col translateDiv"> -->
+        <div id="google_translate_element" class="col translateDiv"></div>
+        <!-- </div> -->
+        <div class="col text-center">
+            <h3>PRISM</h3>
+        </div>
+        <div class="col hiddenSpacing"></div>
+
+        <div class="col text-right rightHeading">
+            <!-- <h5 class="">Logged in as: {{user1.userName}} -->
+            <h5>Logged in as:
+                <i class="fa fa-sign-out fa-1x" aria-hidden="true" (click)="logoutClick()"></i>
+            </h5>
+        </div>
+    </nav>
+
+
+
+    <div class="layout-sidebar fixed-top stickyLeftNav" *ngIf="router.url != '/login'">
+        <div class="sidebar-wrapper">
+            <ul class="nav rti">
+                <li style="background-color: #4484CE"><a>Homepage</a></li>
+                <li><a>General Requests</a></li>
+                <li><a>Medallion 4.0</a></li>
+                <li><a>CCC Plus</a></li>
+                <li><a>Procurements</a></li>
+                <li><a>Media Requests</a></li>
+                <li><a>Reported Problems</a></li>
+                <li><a>Elected Official Requests</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="content">
+        <div class="centerContent">
+
+
+
+            <div class="pos-f-t usefulTipDiv" style="padding-right:15px">
+                <nav class="navbar navbar-dark bg-dark">
+                    <button onclick="toggleIcon()" class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i id="plusIcon" class="fa fa-plus fa-1x" aria-hidden="true" style="display: block"></i>
+                        <i id="minusIcon" class="fa fa-minus" aria-hidden="true" style="display: none"></i>
+                    </button>
+                    <div class="col toggleText">
+                        This application displays the information requests received from the website. (click to learn
+                        more)
+                    </div>
+                </nav>
+                <div class="collapse" id="navbarToggleExternalContent">
+                    <div class="bg-dark p-4">
+                        <span class="text-white">
+
+                            <p>Admins: Please assign the requests to respective SME's based on the request. You can do
+                                this from "assigned to" section. You will receive a notification when SME completes the
+                                request. Please close the ticket once the request is
+                                complete.
+                            </p>
+                            <p><strong>SME's:</strong> You can see the tickets assigned to you in the below buckets.
+                                Please close the request once the response/comment has been submitted from your
+                                "assigned to" section.
+                            </p>
+                            <p>Note: Ticket will be closed only based on admin's approval. Notification will be sent to
+                                requestor once the ticket is closed.</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="card blueTheme custom-col-md-3">
+                    <div class="card-header">Overall Open</div>
+                    <div class="card-body">
+                        <h5 class="card-title">21</h5>
+                    </div>
+                </div>
+                <div class="custom-col-md-1">
+
+                </div>
+
+                <div class="card blueTheme custom-col-md-3">
+                    <div class="card-header">Overall Closed</div>
+                    <div class="card-body">
+                        <h5 class="card-title">39</h5>
+                    </div>
+                </div>
+                <div class="custom-col-md-1">
+
+                </div>
+
+                <div class="card blueTheme custom-col-md-3">
+                    <div class="card-header">Pending more than 7 days</div>
+                    <div class="card-body">
+                        <h5 class="card-title">10</h5>
+                    </div>
+                </div>
+                <div class="custom-col-md-1">
+                </div>
+
+                <div class="card blueTheme custom-col-md-3">
+                    <div class="card-header">Pending more than 2 weeks</div>
+                    <div class="card-body">
+                        <h5 class="card-title">14</h5>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <!-- <div class="row graphRow text-center">
+            <div class="card blueTheme custom-col-md-5">
+                <h2>Test Data Pie Chart</h2>
+                <canvas baseChart
+                      [data]="pieChartData"
+                      [labels]="pieChartLabels"
+                      [chartType]="pieChartType"
+                      [options]="pieChartOptions"
+                      (chartClick)="chartClicked($event)"></canvas>
+            </div>
+
+        <div class="custom-col-md-1">
+        </div>
+
+            <div class="card blueTheme col-md-7">
+                <h2>Test Data Bar Graph</h2>
+                <canvas baseChart
+                [data]="barChartData"
+                [labels]="barChartLabels"
+                [chartType]="barChartType"
+                [options]="barChartOptions"
+                
+                [legend]="false"
+                ></canvas>
+            </div>
+
+        </div> -->
+
+
+
+
+            <br>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="assets/js/translate.js"></script>
+    <script type="text/javascript" src="assets/js/menu.js"></script>
+
+</body>
+
+</html>
